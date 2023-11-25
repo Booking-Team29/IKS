@@ -3,14 +3,18 @@
 .search-result-card {
     @include flex();
     flex-wrap: wrap;
-    width: 30vw;
+    width: 27vw;
     max-height: 50vh;
 
     padding-left: 1vw;
     padding-right: 1vw;
-    padding-top: 0.5vh;
+    padding-top: 2vh;
     border-radius: 20px;
     color: $main_blue;
+    background-color: white;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    margin-bottom: 3vh;
 }
 
 .header, .stats, .description, .accommodation-image, .show{
@@ -70,4 +74,6 @@
         height: 3vh;
         color: white;
     }
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
