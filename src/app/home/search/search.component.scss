@@ -1,0 +1,50 @@
+@import '../../../styles.scss';
+
+.booking-search {
+    @include flex();
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 15vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    background-color: white;
+    border-radius: 20px;
+    color: $main_blue;
+    font-weight: bold;
+}
+
+#numberOfPeople {
+    width: 5vw;
+}
+
+.upper-search, .lower-search{
+    @include flex();
+    width: 100vw;
+    height: 5vh;
+    margin: 0;
+    padding: 0;
+
+    .single-input {
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+
+
+    label {
+        margin-right: 0.5vw;
+    }
+    input, select {
+        border-radius: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-color: $main_blue;
+        border-width: 2px;
+    }
+}
+
+button {
+    background-color: $main_blue;
+    border-radius: 10px;
+    width: 10vw;
+    height: 5vh;
+}
