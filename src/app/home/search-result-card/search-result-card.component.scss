@@ -1,0 +1,73 @@
+@import '../../../styles.scss';
+
+.search-result-card {
+    @include flex();
+    flex-wrap: wrap;
+    width: 30vw;
+    max-height: 50vh;
+
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.5vh;
+    border-radius: 20px;
+    color: $main_blue;
+}
+
+.header, .stats, .description, .accommodation-image, .show{
+    width: 100vw;
+}
+
+.accommodation-image {
+    height: 50%;
+    margin-left: 10%;
+    margin-right: 10%;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+}
+.header {
+    font-weight: bold;
+    font-size: 20px;
+    p {
+        padding-top: 0.5vw;
+        margin: 0;
+    }
+}
+
+.stats {
+    @include flex();
+    p {
+        padding-top: 0.5vw;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+    }
+    .rating {
+        width: 50%;
+    }
+    .place {
+        width: 50%;
+    }
+}
+
+.description p {
+    padding: 0;
+    padding-top: 0.5vw;
+    margin: 0;
+}
+
+.show {
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vh;
+    button {
+        background-color: $accent_color;
+        border-radius: 10px;
+        width: 5vw;
+        height: 3vh;
+        color: white;
+    }
+}
