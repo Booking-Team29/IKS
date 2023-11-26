@@ -1,6 +1,17 @@
 $main_blue: #2094FF;
 $accent_color: #007BFF;
 
+
+$primary-color: #007bff;   /* Blue */
+$secondary-color: white; /* white */
+$tertiary-color: #6c757d; /* Gray */
+$background-color: #007bff;   /* Blue */
+$accent-color: #dc3545;    /* Red */
+
+body {
+  background-color: $background-color;
+}
+
 @mixin flex {
     display: flex;
     align-items: center;
