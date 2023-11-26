@@ -1,0 +1,21 @@
+@import "../../../styles.scss";
+.search-page{
+    @include flex();
+    flex-wrap: wrap;
+    background-color: $main_blue;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    padding-top: 5vh;
+}
+
+.booking-search {
+    width: 100vw;
+}
+
+.results {
+    @include flex();
+    flex-wrap: wrap;
+    margin-top: 5vh;
+}
