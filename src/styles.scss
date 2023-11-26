@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+$main_blue: #2094FF;
+$accent_color: #007BFF;
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
