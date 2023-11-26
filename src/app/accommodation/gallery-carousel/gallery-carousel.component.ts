@@ -4,7 +4,7 @@ import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
   template: `
-    <gallery [items]="images"></gallery>
+      <gallery [items]="images"></gallery>
   `,
   selector: 'app-gallery-carousel',
   standalone: true,

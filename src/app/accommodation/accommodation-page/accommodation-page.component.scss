@@ -23,15 +23,14 @@
 
 
 .carousel-div {
-    @include flex();
-    max-width: 80vw;
+    width: 80vw !important;
     height: 50vh;
-    background-color: white !important;
 }
 
 ::ng-deep gallery {
     background-color: white !important;
     height: 100% !important;
+    width: 100% !important;
 }
 
 .accommodation-header {
