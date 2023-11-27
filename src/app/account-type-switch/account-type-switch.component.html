@@ -1,0 +1,7 @@
+<div class="switch-container">
+  <label class="switch">
+    <input type="checkbox" [checked]="isOwnerAccount" (change)="toggleAccountType()">
+    <span class="slider round"></span>
+  </label>
+  <span class="account-type-label">{{ isOwnerAccount ? 'Owner Account' : 'Renter Account' }}</span>
+</div>
