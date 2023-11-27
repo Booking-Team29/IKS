@@ -1,7 +1,9 @@
 <!-- header.component.html -->
 <nav class="navbar">
   <div class="navbar-brand">
-    <img src="assets/logo.png" alt="Logo">
+    <button class="home-logo" (click)="openItem('home')">
+      <img src="assets/logo.png" alt="Logo">
+    </button>
   </div>
   <button class="hamburger" (click)="toggleNavbar()">☰</button> <!-- Hamburger Icon -->
   <ul class="navbar-nav" [class.active]="navbarOpen">
