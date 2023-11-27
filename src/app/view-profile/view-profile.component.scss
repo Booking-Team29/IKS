@@ -1,0 +1,204 @@
+/* edit-profile.component.css or .scss */
+
+@import "../../styles.scss";
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.profile-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.user-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.profile-form {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-form .input-group {
+  margin-bottom: 1rem;
+}
+
+.profile-form input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.actions {
+  text-align: center;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .header, .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navigation .nav-link {
+    display: block;
+    margin: 5px 0;
+  }
+
+  .profile-form input {
+    display: block;
+    width: calc(100% - 1rem); /* Accounting for padding */
+    margin-bottom: 0.5rem;
+  }
+
+  .actions .action-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .actions .action-btn:last-child {
+    margin-right: 0;
+  }
+}
+
+.account-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.account-card {
+  width: 100%;
+  max-width: 500px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.account-info, .account-form {
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.account-form input {
+  width: calc(50% - 10px);
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.account-actions {
+  text-align: center;
+}
+
+.edit-account-btn, .save-changes-btn, .delete-account-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-account-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.save-changes-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.delete-account-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .account-form input {
+    width: 100%;
+  }
+}
+
+.user-profile-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="confirm-password"],
+.form-group input[type="tel"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
