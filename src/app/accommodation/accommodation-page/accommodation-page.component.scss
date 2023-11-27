@@ -1,0 +1,111 @@
+@import '../../../styles.scss';
+
+.accommodation-details {
+    @include flex();
+    flex-wrap: wrap;
+    width: 100%;
+    color: $main_blue;
+    background-color: $main_blue;
+}
+.container{
+    @include flex();
+    flex-wrap: wrap;
+    width: 80%;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: 15px;
+    min-height: 50vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    color: $main_blue;
+    background-color: white;
+}
+
+
+.carousel-div {
+    width: 80vw !important;
+    height: 50vh;
+}
+
+::ng-deep gallery {
+    background-color: white !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.accommodation-header {
+    @include flex();
+    margin-top: 2vh;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    margin-bottom: 2vh;
+    height: 15vh;
+    width: 30%;
+    max-width: 50%;
+    border-radius: 15px;
+    flex-wrap: wrap;
+
+    .name-div{
+        @include flex();
+        justify-content: center;
+        width: 100%;
+        font-weight: bold;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+    }
+
+    .stats-div {
+        @include flex();
+        justify-content: center;
+        width: 100%;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+        p {
+            margin-left: 1vw;
+            font-weight: bold;
+        }
+    }
+
+    .book-div {
+        @include flex();
+        width: 100%;
+        height: 3vh;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+        button {
+            background-color: $main_blue;
+            color: white;
+            border-radius: 15px;
+            border-color: white;
+            min-width: 20%;
+            padding-left: 0.5vw;
+            padding-right: 0.5vw;
+            height: 100%;
+            font-size: 1vw;
+        }
+    }
+}
+
+.description-div {
+    width: 90%;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 1vw;
+}
+
+.amenities-div {
+    @include flex();
+    flex-wrap: wrap;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.reviews {
+    @include flex();
+    flex-wrap: wrap;
+    width: 80%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}

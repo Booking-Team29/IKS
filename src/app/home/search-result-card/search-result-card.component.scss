@@ -45,9 +45,8 @@
 .stats {
     @include flex();
     p {
-        padding-top: 0.5vw;
-        padding: 0;
-        margin: 0;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
         font-weight: bold;
     }
     .rating {
