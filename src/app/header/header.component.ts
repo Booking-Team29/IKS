@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,5 +14,10 @@ export class HeaderComponent {
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+
+  constructor(private router: Router) { }
+  openItem(name: string) {
+    this.router.navigate(['/' + name + '/'])
   }
 }

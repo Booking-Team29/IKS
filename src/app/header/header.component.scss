@@ -30,9 +30,19 @@
 
   .nav-item {
     margin-left: 20px;
-  }
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vh;
+    button {
+        background-color: $accent_color;
+        border-radius: 10px;
+        width: 5vw;
+        height: 3vh;
+        color: white;
+    }
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 
-  .nav-link {
+    border-radius: 20px;
     color: $primary-color;
     text-decoration: none;
     &:hover {
@@ -41,6 +51,9 @@
   }
 }
 
+.home-logo {
+  border: none;
+}
 // Styles for mobile view
 @media (max-width: 768px) {
   .hamburger {

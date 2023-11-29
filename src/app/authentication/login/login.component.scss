@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,8 @@ h2 {
 }
 
 .login-form {
+  background-color: $secondary-color;
+  color: $tertiary-color;
   width: 300px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -19,7 +23,7 @@ h2 {
 }
 
 .login-form label{
-  color: white;
+  color: $tertiary-color;
 }
 
 

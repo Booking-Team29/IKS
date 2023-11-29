@@ -1,13 +1,23 @@
 <!-- header.component.html -->
 <nav class="navbar">
   <div class="navbar-brand">
-    <img src="assets/logo.png" alt="Logo">
+    <button class="home-logo" (click)="openItem('home')">
+      <img src="assets/logo.png" alt="Logo">
+    </button>
   </div>
   <button class="hamburger" (click)="toggleNavbar()">☰</button> <!-- Hamburger Icon -->
   <ul class="navbar-nav" [class.active]="navbarOpen">
-    <li class="nav-item"><a href="#" class="nav-link">Search</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Register</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">Profile</a></li>
+    <li class="nav-item">
+      <button (click)="openItem('view-profile')">Profile</button>
+    </li>
+    <li class="nav-item">
+      <button (click)="openItem('login')">Login</button>
+    </li>
+    <li class="nav-item">
+      <button (click)="openItem('register')">Register</button>
+    </li>
+    <li class="nav-item">
+      <button (click)="openItem('home')">Search</button>
+    </li>
   </ul>
 </nav>
