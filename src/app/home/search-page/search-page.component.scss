@@ -3,7 +3,7 @@
     @include flex();
     flex-wrap: wrap;
     background-color: $main_blue;
-    min-width: 100%;
+    max-width: 100%;
     min-height: 100%;
     margin: 0;
     padding: 0;
