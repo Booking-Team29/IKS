@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 .register-container {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,12 @@
 }
 
 h2 {
-  color: white;
+  color: $secondary-color;
+}
+
+.register-form {
+  background-color: $secondary-color;
+  color: $tertiary-color;
 }
 
 .register-form {
