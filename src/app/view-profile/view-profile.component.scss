@@ -2,14 +2,10 @@
 
 @import "../../styles.scss";
 
-.container {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-  font-family: 'Roboto', sans-serif;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
+.account-container {
+  height: 83vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 .profile-section {
@@ -84,7 +80,6 @@
 .account-container {
   display: flex;
   justify-content: center;
-  padding: 20px;
 }
 
 .account-card {
