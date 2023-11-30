@@ -4,10 +4,14 @@
 .navbar {
   background-color: $secondary-color;
   color: $primary-color;
-  padding: 0.5rem 1rem;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 5vh;
 }
 
 .navbar-brand img {

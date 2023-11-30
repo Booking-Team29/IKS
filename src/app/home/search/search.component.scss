@@ -3,10 +3,8 @@
 .booking-search {
     @include flex();
     flex-wrap: wrap;
-    width: 80vw;
+    max-width: 80vw;
     height: 15vh;
-    margin-left: 10vw;
-    margin-right: 10vw;
     background-color: white;
     border-radius: 20px;
     color: $main_blue;
