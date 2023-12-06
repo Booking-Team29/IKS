@@ -1,11 +1,75 @@
 <div class="search-page">
-    <app-search></app-search>
 
-    <div class="results">
-        <app-search-result-card></app-search-result-card>
-        <app-search-result-card></app-search-result-card>
-        <app-search-result-card></app-search-result-card>
-        <app-search-result-card></app-search-result-card>
-        <app-search-result-card></app-search-result-card>
+    <div class="booking-search">
+        <app-search></app-search>
+    </div>
+
+    <div class="results-wrapper">
+        <div class="filter-wrapper">
+            <div class="filters-div">
+                <div class="property-filters">
+                    <p>Property type</p>
+                    <div class="cb-div">
+                        <label for="hotel">Hotel</label>
+                        <input type="checkbox" id="hotel" value="Hotel" [(ngModel)]="hotelChecked"/>
+                    </div>
+                    <div class="cb-div">
+                        <label for="apartment">Apartment</label>
+                        <input type="checkbox" id="apartment" value="Apartment" [(ngModel)]="apartmentChecked"/>
+                    </div>
+                    <div class="cb-div">
+                        <label for="studio">Studio</label>
+                        <input type="checkbox" id="studio" value="Studio" [(ngModel)]="studioChecked"/>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="rating-filters">
+                    <p>Rating</p>
+                    <div class="single-input">
+                        <label for="lowestRating">Lowest rating:</label>
+                        <input type="number" id="lowestRating" [(ngModel)]="lowestRating" placeholder=5/>
+                    </div>
+
+                    <div class="single-input">
+                        <label for="highestRating">Highest rating:</label>
+                        <input type="number" id="highestRating" [(ngModel)]="highestRating" placeholder=5/>
+                    </div>
+                </div>
+                <hr>
+                
+                <div class="amenities-filters">
+                    <p>Amenities</p>
+                    <div class="cb-div">
+                        <label for="wifi">WiFi</label>
+                        <input type="checkbox" id="wifi" value="WiFi" [(ngModel)]="WiFiChecked"/>
+                    </div>
+                    <div class="cb-div">
+                        <label for="parking">Free Parking</label>
+                        <input type="checkbox" id="parking" value="Parking" [(ngModel)]="parkingChecked"/>
+                    </div>
+                    <div class="cb-div">
+                        <label for="pet">Pet Friendly</label>
+                        <input type="checkbox" id="pet" value="Pet Friendly" [(ngModel)]="petChecked"/>
+                    </div>
+                    <div class="cb-div">
+                        <label for="balcony">Balcony</label>
+                        <input type="checkbox" id="balcony" value="Balcony" [(ngModel)]="balconyChecked"/>
+                    </div>
+                    <div class="cb-div">
+                        <label for="aircond">Air conditioning</label>
+                        <input type="checkbox" id="aircond" value="Air conditioning" [(ngModel)]="airConditioningChecked"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results">
+            <app-search-result-card></app-search-result-card>
+            <app-search-result-card></app-search-result-card>
+            <app-search-result-card></app-search-result-card>
+            <app-search-result-card></app-search-result-card>
+            <app-search-result-card></app-search-result-card>
+        </div>
     </div>
 </div>
