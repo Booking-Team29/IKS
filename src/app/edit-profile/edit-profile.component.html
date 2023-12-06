@@ -46,9 +46,9 @@
         </div>
 
         <div class="actions">
-          <button type="submit" class="action-btn save-changes-btn">Apply Changes</button>
-          <button type="button" class="action-btn delete-account-btn">Delete Account</button>
-          <a href="/view-profile" class="action-btn edit-account-btn">Cancel</a>
+          <button class="action-btn save-changes-btn">Apply Changes</button>
+          <button class="action-btn delete-account-btn">Delete Account</button>
+          <button (click)="cancelEdit()" class="action-btn edit-account-btn">Cancel</button>
         </div>
       </form>
     </div>
