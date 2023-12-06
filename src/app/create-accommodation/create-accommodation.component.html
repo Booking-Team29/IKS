@@ -12,17 +12,17 @@
     <input type="text" id="name" name="name"><br><br>
 
     <label for="description">Description:</label><br>
-    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+    <textarea id="description" name="description" rows="4" cols="35"></textarea><br><br>
 
     <label for="location">Location:</label><br>
     <input type="text" id="location" name="location"><br><br>
-
-    <label for="amenities">Amenities</label><br>
+    <label for="amenities" id="amenities">Amenities: </label><br>
+    <label>Wi-Fi, TV</label>
     <select id="amenities-select" name="amenities-select">
       <option value="wi-fi">Wi-fi</option>
       <option value="tv">TV</option>
     </select><br><br>
-    <button type="button" id="add_amenity_button">Add Date</button><br>
+    <button type="button" id="add_amenity_button">Add Amenity</button><br>
 
     <label for="photos">Photos :</label><br>
     <input type="file" id="photos" name="photos" multiple><br><br>
@@ -41,16 +41,24 @@
       <option value="room">Room</option>
       <!-- Add other accommodation type options if needed -->
     </select><br><br>
-
-    <label for="start_date">Start Date:</label><br>
-    <input type="date" id="start_date" name="start_date"><br><br>
-
-    <label for="end_date">End Date:</label><br>
-    <input type="date" id="end_date" name="end_date"><br><br>
-    <button type="button" id="add_date_button">Add Date</button><br>
-
     <label for="price">Price per Night:</label><br>
     <input type="number" id="price" name="price"><br><br>
+    <label for="dates">Available dates :</label><br>
+    <textarea id="dates" name="dates" rows="4" cols="35"></textarea><br><br>
+    <div class="date-col">
+      <div class="col1">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date">
+      </div>
+
+      <div class="col1">
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date">
+      </div>
+    </div>
+
+    <button type="button" id="add_date_button">Add Availabilty</button><br>
+
   </div>
 
   <div class="button-container">
