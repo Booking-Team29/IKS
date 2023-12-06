@@ -47,8 +47,9 @@
 
         <div class="actions">
           <button class="action-btn save-changes-btn">Apply Changes</button>
-          <button class="action-btn delete-account-btn">Delete Account</button>
-          <button (click)="cancelEdit()" class="action-btn edit-account-btn">Cancel</button>
+          <button type="button" (click)="confirmationModal.openModal('delete your account')" class="action-btn delete-account-btn">Delete Account</button>
+          <app-confirmation-modal #confirmationModal [onConfirm]="deleteAccount"></app-confirmation-modal>
+          <button type="button" (click)="cancelEdit()" class="action-btn edit-account-btn">Cancel</button>
         </div>
       </form>
     </div>
