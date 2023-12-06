@@ -5,6 +5,7 @@ import { LoginComponent } from "./authentication/login/login.component";
 import { RegisterComponent } from "./authentication/register/register.component";
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {CreateAccommodationComponent} from "./create-accommodation/create-accommodation.component";
 
 export const routes: Routes = [
     {path: '', component: SearchPageComponent },
@@ -18,4 +19,6 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent },
     {path: 'view-profile', component: ViewProfileComponent },
     {path: 'edit-profile', component: EditProfileComponent },
+    {path: 'create-accommodation', component: CreateAccommodationComponent },
+
 ];
