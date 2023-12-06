@@ -1,0 +1,11 @@
+<div id="confirmationModal" class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <div>
+      <span class="close-btn" (click)="closeModal()">&times;</span>
+    </div>
+    <p>Are you sure you want to {{ actionName }}?</p>
+
+    <button (click)="confirmAction()" class="action-btn yes-btn">Yes</button>
+    <button (click)="closeModal()" class="action-btn cancel-btn">Cancel</button>
+  </div>
+</div>
