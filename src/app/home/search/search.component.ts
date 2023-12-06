@@ -14,14 +14,8 @@ export class SearchComponent {
   checkInDate: string = '';
   checkOutDate: string = '';
   numberOfPeople: number = 1;
-  roomType: string = '';
-  lowestRating: number = 5;
-  highestRating: number = 10;
-
 
 
   search() {
-    // TODO: actual logic
-    console.log('Search clicked:', this.destination, this.checkInDate, this.checkOutDate, this.numberOfPeople, this.roomType);
   }
 }
