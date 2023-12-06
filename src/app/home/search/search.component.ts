@@ -15,6 +15,9 @@ export class SearchComponent {
   checkOutDate: string = '';
   numberOfPeople: number = 1;
   roomType: string = '';
+  lowestRating: number = 5;
+  highestRating: number = 10;
+
 
 
   search() {
