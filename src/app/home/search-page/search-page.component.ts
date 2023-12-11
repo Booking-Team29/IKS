@@ -22,4 +22,6 @@ export class SearchPageComponent {
   petChecked: Boolean = false;
   balconyChecked: Boolean = false;
   airConditioningChecked: Boolean = false;
+
+  results: any[] = [];
 }

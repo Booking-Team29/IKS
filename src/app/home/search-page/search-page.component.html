@@ -64,12 +64,10 @@
             </div>
         </div>
 
-        <div class="results">
-            <app-search-result-card></app-search-result-card>
-            <app-search-result-card></app-search-result-card>
-            <app-search-result-card></app-search-result-card>
-            <app-search-result-card></app-search-result-card>
-            <app-search-result-card></app-search-result-card>
+        <div class="results" >
+            <div *ngFor="let res of results">
+                <app-search-result-card [result]="res"></app-search-result-card>
+            </div>
         </div>
     </div>
 </div>
