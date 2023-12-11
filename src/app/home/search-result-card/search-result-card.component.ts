@@ -14,6 +14,6 @@ export class SearchResultCardComponent {
     @Input() result: any;
 
   navigate() {
-    this.router.navigate(['/accommodation/1'])
+    this.router.navigate([`/accommodation/${this.result.id}`])
   }
 }
