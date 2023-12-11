@@ -30,6 +30,10 @@ h1 {
 
 .form-container textarea {
   padding: 5px;
+  resize: none;
+  border-width: 2px;
+  border-color: #2094FF;
+  border-radius: 5px;
 }
 
 .form-container button {
