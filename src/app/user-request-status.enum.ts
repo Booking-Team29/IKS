@@ -1,0 +1,7 @@
+export enum UserRequestStatus {
+  APPROVED = 'APPROVED',
+  DECLINED = 'DECLINED',
+  CREATED = 'CREATED',
+  PENDING = 'PENDING',
+  CHANGED = 'CHANGED',
+}
