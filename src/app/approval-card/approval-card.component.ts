@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Status } from '../accommodation/accommodation-status.enum';
+import { UserRequestStatus } from '../user-request-status.enum';
 import { Router } from '@angular/router';
 
-const classSelectorMap: { [key in Status]: string } = {
-    [Status.APPROVED]: 'status-approved',
-    [Status.DECLINED]: 'status-declined',
-    [Status.CREATED]: 'status-created',
-    [Status.PENDING]: 'status-pending',
-    [Status.CHANGED]: 'status-changed',
+const classSelectorMap: { [key in UserRequestStatus]: string } = {
+    [UserRequestStatus.APPROVED]: 'status-approved',
+    [UserRequestStatus.DECLINED]: 'status-declined',
+    [UserRequestStatus.CREATED]: 'status-created',
+    [UserRequestStatus.PENDING]: 'status-pending',
+    [UserRequestStatus.CHANGED]: 'status-changed',
 };
 
 @Component({
@@ -19,21 +19,21 @@ const classSelectorMap: { [key in Status]: string } = {
   styleUrl: './approval-card.component.scss'
 })
 export class ApprovalCardComponent {
-  private _status: Status;
+  private _status: UserRequestStatus;
   private _statusClassSelector: string;
   private _name: string;
   private _requestID;
 
   constructor(private router: Router) {
     this._requestID = 1; // impelelemnt :DDDDDDDd
-    this._status = Status.CREATED;
+    this._status = UserRequestStatus.CREATED;
     this._statusClassSelector = classSelectorMap[this._status];
     this._name = "Place (holder)";
   }
 
   @Input()
-  set status(value: Status) {
-    if (Object.values(Status).includes(value)) {
+  set status(value: UserRequestStatus) {
+    if (Object.values(UserRequestStatus).includes(value)) {
       this._status = value;
       this._statusClassSelector = classSelectorMap[this._status];
     } else {
@@ -41,7 +41,7 @@ export class ApprovalCardComponent {
     }
   }
 
-  get status(): Status {
+  get status(): UserRequestStatus {
     return this._status;
   }
 
@@ -63,13 +63,13 @@ export class ApprovalCardComponent {
   }
 
   approveRequest(requestID: number) {
-    this._status = Status.APPROVED;
-    this._statusClassSelector = classSelectorMap[Status.APPROVED];
+    this._status = UserRequestStatus.APPROVED;
+    this._statusClassSelector = classSelectorMap[UserRequestStatus.APPROVED];
   }
 
   declineRequest(requestID: number) {
-    this._status = Status.DECLINED;
-    this._statusClassSelector = classSelectorMap[Status.DECLINED];
+    this._status = UserRequestStatus.DECLINED;
+    this._statusClassSelector = classSelectorMap[UserRequestStatus.DECLINED];
   }
 
   openDetails(requestID: number) {

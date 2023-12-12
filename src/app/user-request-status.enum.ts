@@ -1,4 +1,4 @@
-export enum Status {
+export enum UserRequestStatus {
   APPROVED = 'APPROVED',
   DECLINED = 'DECLINED',
   CREATED = 'CREATED',

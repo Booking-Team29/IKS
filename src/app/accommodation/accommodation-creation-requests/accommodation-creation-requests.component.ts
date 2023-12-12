@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApprovalCardComponent } from '../../approval-card/approval-card.component';
-import { Status } from '../accommodation-status.enum';
+import { UserRequestStatus } from '../../user-request-status.enum';
 
 @Component({
   selector: 'app-accommodation-creation-requests',
@@ -13,7 +13,7 @@ import { Status } from '../accommodation-status.enum';
 export class AccommodationCreationRequestsComponent implements OnInit {
 
   requests!: any[]; // actual requests data type
-  Status = Status;
+  Status = UserRequestStatus;
 
   constructor() { }
 
