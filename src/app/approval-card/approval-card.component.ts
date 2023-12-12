@@ -36,7 +36,6 @@ export class ApprovalCardComponent {
     if (Object.values(Status).includes(value)) {
       this._status = value;
       this._statusClassSelector = classSelectorMap[this._status];
-      console.log(this._statusClassSelector);
     } else {
       throw new Error(`Invalid status: ${value}`);
     }
