@@ -4,7 +4,7 @@ body {
   margin: 0;
 }
 
-h1 {
+h1, h2 {
   color: white;
   text-align: center;
   margin-top: 20px;
@@ -29,6 +29,7 @@ h1 {
   flex-direction: row;
   gap: 10px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .container label{
@@ -75,4 +76,9 @@ th, td {
   width: 150px;
   border-color: #2094FF;
   box-sizing: border-box;
+}
+
+#cancel-days-input{
+  width: 150px;
+  margin-top: 20px;
 }
