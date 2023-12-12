@@ -1,0 +1,68 @@
+@import "../../styles.scss";
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 8px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  background-color: $secondary-color;
+  border: 1px solid #ced4da;
+}
+
+.badge-primary {
+  border-radius: 2px;
+  padding: 5px 10px;
+  color: $primary-color;
+  font-weight: bold;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-status {
+  text-transform: uppercase;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-details {
+  background-color: $primary-color;
+  color: white;
+}
+
+.btn-approve {
+  background-color: $green;
+  color: white;
+}
+
+.btn-decline {
+  background-color: $red;
+  color: white;
+}
+
+.status-approved {
+  color: $green;
+}
+
+.status-declined {
+  color: $red;
+}
+
+.status-created,
+.status-pending,
+.status-changed {
+  color: $yellow;
+}

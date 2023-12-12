@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-body">
+    <span class="badge badge-primary">{{ name }}</span>
+    <div class="card-content">
+      <h5 class="card-status {{ statusClassSelector }}">{{ status }}</h5>
+      <div class="card-buttons">
+        <button (click)="openDetails(requestID)" class="action-btn btn-details">Details</button>
+        <button (click)="approveRequest(requestID)" class="action-btn btn-approve">Approve</button>
+        <button (click)="declineRequest(requestID)" class="action-btn btn-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <main class="main-content">
+
+    <h2>Requests</h2>
+    <app-approval-card
+      [status]="Status.CREATED"
+      [name]=" 'Place 1' "
+    ></app-approval-card>
+    <app-approval-card
+      [status]="Status.PENDING"
+      [name]=" 'Place 2' "
+    ></app-approval-card>
+    <app-approval-card
+      [status]="Status.APPROVED"
+      [name]=" 'Place 3' "
+    ></app-approval-card>
+    <app-approval-card
+      [status]="Status.DECLINED"
+      [name]=" 'Place 4' "
+    ></app-approval-card>
+    <app-approval-card
+      [status]="Status.CHANGED"
+      [name]=" 'Place 5' "
+    ></app-approval-card>
+    <app-approval-card></app-approval-card>
+    <app-approval-card></app-approval-card>
+    <app-approval-card></app-approval-card>
+  </main>
+</div>
+

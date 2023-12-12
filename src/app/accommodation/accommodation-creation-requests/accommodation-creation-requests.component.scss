@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+.container {
+  background-color: $background-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 5rem 2rem 5rem;
+}
+
+h2 {
+  color: $secondary-color;
+}
