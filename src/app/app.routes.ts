@@ -6,6 +6,7 @@ import { RegisterComponent } from "./authentication/register/register.component"
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AccommodationCreationRequestsComponent } from './accommodation/accommodation-creation-requests/accommodation-creation-requests.component';
+import { OwnerAccommodationPageComponent } from './owner-accommodations/owner-accommodation-page/owner-accommodation-page.component';
 
 export const routes: Routes = [
     {path: '', component: SearchPageComponent },
@@ -20,4 +21,5 @@ export const routes: Routes = [
     {path: 'view-profile', component: ViewProfileComponent },
     {path: 'edit-profile', component: EditProfileComponent },
     {path: 'accommodation-creation-requests', component: AccommodationCreationRequestsComponent },
+    {path: 'owner-accommodations', component: OwnerAccommodationPageComponent}
 ];

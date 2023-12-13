@@ -1,0 +1,8 @@
+@import '../../../styles.scss';
+
+.accommodations {
+    @include flex();
+    flex-wrap: wrap;
+    width: 100vw;
+    min-height: 87vh;
+}

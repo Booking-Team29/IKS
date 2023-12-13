@@ -1,0 +1,47 @@
+@import '../../../styles.scss';
+
+.accommodation-card {
+    @include flex();
+    width: 60vw;
+    height: 30vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    border: 2px solid white;
+    border-radius: 20px;
+
+    color: white;
+}
+
+.img-div{
+    height: 90%;
+    margin-left: 10%;
+    margin-right: 2%;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+    border-radius: 15px;
+    border: 2px solid white;
+}
+
+.description-div {
+    width: 30%;
+}
+
+.button-div{
+    width: 20%;
+    button {
+        width: 50%;
+        height: 5vh;
+        color: $main_blue;
+        background-color: white;
+        border-radius: 15px;
+        font-weight: bold;
+    }
+}
