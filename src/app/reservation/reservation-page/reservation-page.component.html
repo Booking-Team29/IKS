@@ -1,0 +1,84 @@
+<div class="accommodation-details">
+  <div class="container">
+    <div class="carousel-div">
+      <app-gallery-carousel></app-gallery-carousel>
+    </div>
+
+    <div class="accommodation-header">
+      <div class="name-div">
+        <h1>Place 1</h1>
+      </div>
+
+      <div class="stats-div">
+        <p>9.4/10</p>
+        <p>Novi Sad, Serbia</p>
+      </div>
+
+
+      <form class="reservation-form">
+        <div class="form-group">
+          <label for="">Check In:</label>
+          <input type="date" id="check-in"> <!--[(ngModel)]="checkInDate"-->
+        </div>
+
+        <div class="form-group">
+          <label for="check-out">Check Out:</label>
+          <input required type="date" id="check-out"> <!-- [(ngModel)]="checkOutDate" -->
+        </div>
+
+        <div class="form-group">
+          <label for="number-of-guests">Number of guests</label>
+          <input required type="text" id="number-of-guests" name="number-of-guests"
+            placeholder="Enter number of guests">
+        </div>
+
+        <div class="book-div">
+          <button>Make a reservation</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="description-div">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nunc a lectus id orci ultricies dictum.
+        Donec a turpis vulputate, laoreet augue ac, lobortis elit.
+        Pellentesque scelerisque malesuada nisl, at mollis enim lacinia vel.
+        Etiam ut urna interdum, pharetra sem in, malesuada magna.
+        Fusce rutrum iaculis erat sit amet rhoncus. Fusce non viverra metus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nunc a lectus id orci ultricies dictum.
+        Donec a turpis vulputate, laoreet augue ac, lobortis elit.
+        Pellentesque scelerisque malesuada nisl, at mollis enim lacinia vel.
+        Etiam ut urna interdum, pharetra sem in, malesuada magna.
+        Fusce rutrum iaculis erat sit amet rhoncus. Fusce non viverra metus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nunc a lectus id orci ultricies dictum.
+        Donec a turpis vulputate, laoreet augue ac, lobortis elit.
+        Pellentesque scelerisque malesuada nisl, at mollis enim lacinia vel.
+        Etiam ut urna interdum, pharetra sem in, malesuada magna.
+        Fusce rutrum iaculis erat sit amet rhoncus. Fusce non viverra metus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nunc a lectus id orci ultricies dictum.
+        Donec a turpis vulputate, laoreet augue ac, lobortis elit.
+        Pellentesque scelerisque malesuada nisl, at mollis enim lacinia vel.
+        Etiam ut urna interdum, pharetra sem in, malesuada magna.
+        Fusce rutrum iaculis erat sit amet rhoncus. Fusce non viverra metus.
+      </p>
+    </div>
+
+    <div class="amenities-div">
+      <app-amenity-card></app-amenity-card>
+      <app-amenity-card></app-amenity-card>
+      <app-amenity-card></app-amenity-card>
+    </div>
+
+    <div class="reviews">
+      <app-review-card></app-review-card>
+      <app-review-card></app-review-card>
+      <app-review-card></app-review-card>
+    </div>
+  </div>
+</div>
