@@ -13,7 +13,7 @@ import { UserRequestStatus } from '../../user-request-status.enum';
 export class AccommodationCreationRequestsComponent implements OnInit {
 
   requests!: any[]; // actual requests data type
-  Status = UserRequestStatus;
+  UserRequestStatus = UserRequestStatus;
 
   constructor() { }
 
