@@ -1,6 +1,6 @@
 export enum AccommodationStatus {
-  Created = 'Created',
-  Approved = 'Approved',
-  Denied = 'Denied',
-  Edited = 'Edited'
+  CREATED = 'CREATED',
+  APPROVED = 'APPROVED',
+  DENIED = 'DENIED',
+  EDITED = 'EDITED'
 }
