@@ -91,8 +91,21 @@ export class ApprovalCardComponent {
   }
 
   declineRequest(requestID: number) {
-    this._status = UserRequestStatus.DECLINED;
-    this._statusClassSelector = classSelectorMap[UserRequestStatus.DECLINED];
+    this.service.get(`${requestID}`).subscribe(response => {
+      let accommodation = response;
+
+      let approvedAccommodationDTO = accommodation;
+      approvedAccommodationDTO.AccommodationStatus = AccommodationStatus.DENIED;
+
+      this.service.approve(`${requestID}`, approvedAccommodationDTO).subscribe(response => {
+        console.log(response);
+
+        this.confirmationModal.openModal('Successfully declined accommodation creation request!');
+
+        this._status = UserRequestStatus.DECLINED;
+        this._statusClassSelector = classSelectorMap[UserRequestStatus.DECLINED];
+      });
+    });
   }
 
   openDetails(requestID: number) {
