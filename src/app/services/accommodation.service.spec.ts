@@ -215,6 +215,7 @@ describe('AccommodationService', () => {
     it('should create accommodation data', (done) => {
       service.create(createAccommodationObj).subscribe(response => {
         expect(response).toBeTruthy();
+        expect(response).toEqual(createAccommodationObj);
         // TODO: add check for actual data here when it becomes applicable
 
         done();

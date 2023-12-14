@@ -5,12 +5,9 @@ import { LoginComponent } from "./authentication/login/login.component";
 import { RegisterComponent } from "./authentication/register/register.component";
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-<<<<<<< HEAD
 import {CreateAccommodationComponent} from "./create-accommodation/create-accommodation.component";
 import {DefineAccommodationComponent} from "./define-accommodation/define-accommodation.component";
-=======
 import { AccommodationCreationRequestsComponent } from './accommodation/accommodation-creation-requests/accommodation-creation-requests.component';
->>>>>>> 961ecc964625490840142cb158aed1e6cad25fbd
 
 export const routes: Routes = [
     {path: '', component: SearchPageComponent },

@@ -1,69 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Create Accommodation</title>
-</head>
-<body>
+<div id="main-content">
 <h1>Create New Accommodation</h1>
-<form action="/submit-accommodation" method="POST" class="form-container">
-  <div class="column">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br><br>
-
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description" rows="4" cols="35"></textarea><br><br>
-
-    <label for="location">Location:</label><br>
-    <input type="text" id="location" name="location"><br><br>
-    <label for="amenities" id="amenities">Amenities: </label><br>
-    <label>Wi-Fi, TV</label><br>
-    <select id="amenities-select" name="amenities-select">
-      <option value="wi-fi">Wi-fi</option>
-      <option value="tv">TV</option>
-    </select><br>
-    <button type="button" id="add_amenity_button">Add</button><br>
-
-    <label for="photos">Photos :</label><br>
-    <input type="file" id="photos" name="photos" multiple><br><br>
-  </div>
-
-  <div class="column">
-    <label for="min_guests">Minimum number of guests:</label><br>
-    <input type="number" id="min_guests" name="min_guests"><br><br>
-
-    <label for="max_guests">Maximum number of guests:</label><br>
-    <input type="number" id="max_guests" name="max_guests"><br><br>
-
-    <label for="accommodation_type">Type:</label><br>
-    <select id="accommodation_type" name="accommodation_type">
-      <option value="studio">Studio</option>
-      <option value="room">Room</option>
-      <!-- Add other accommodation type options if needed -->
-    </select><br><br>
-    <label for="price">Price per Night:</label><br>
-    <input type="number" id="price" name="price"><br><br>
-    <label for="dates">Available dates :</label><br>
-    <textarea id="dates" name="dates" rows="4" cols="35"></textarea><br><br>
-    <div class="date-col">
-      <div class="col1">
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date">
-      </div>
-
-      <div class="col1">
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date">
-      </div>
+<div class="form-container">
+  <div class="first-row">
+    <div class="column">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" cols="35"></textarea>
+      <label>Amenities: </label>
+      <label id="amenities-list-label">{{ amenitiesLabelText }}</label>
+      <select id="amenities-select" name="amenities-select">
+        <option value="wi-fi">Wi-fi</option>
+        <option value="tv">TV</option>
+        <option value="air-conditioner">Air conditioner</option>
+        <option value="parking-lot">Parking lot</option>
+        <option value="gym">Gym</option>
+      </select>
+      <button type="button" id="add_amenity_button" (click)="addAmenity()">Add</button>
+      <label for="photos">Photos :</label>
+      <input type="file" id="photos" name="photos" multiple>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location">
     </div>
 
-    <button type="button" id="add_date_button">Add</button><br>
-
+    <div class="column">
+      <label>Prices:</label>
+      <textarea id="prices" name="dates" rows="4" cols="35" readonly></textarea>
+      <label>Enter date range :</label>
+      <div class="row">
+        <input type="date" id="price-start-date">
+        <input type="date" id="price-end-date">
+      </div>
+      <label>Enter price and price type :</label>
+      <div class="row">
+        <input type="number" id="price-input">
+        <select id="price_type">
+          <option value="per-guest">Per guest</option>
+          <option value="per-apartment">Per apartment</option>
+        </select>
+      </div>
+      <button (click)="addPrice()">Add</button>
+      <label for="min_guests">Minimum number of guests:</label>
+      <input type="number" id="min_guests" name="min_guests">
+      <label for="max_guests">Maximum number of guests:</label>
+      <input type="number" id="max_guests" name="max_guests">
+    </div>
+    <div class="column">
+      <label for="accommodation_type">Type:</label>
+      <select id="accommodation_type" name="accommodation_type">
+        <option value="studio">Studio</option>
+        <option value="room">Room</option>
+      </select>
+      <label for="price">Price per Night:</label>
+      <input type="number" id="price" name="price">
+      <label for="dates">Available dates :</label>
+      <textarea id="dates" name="dates" rows="4" cols="35" readonly>{{ dateRangeText }}</textarea>
+      <label>Enter date range :</label>
+      <div class="row">
+        <input type="date" id="start_date" name="start_date">
+        <input type="date" id="end_date" name="end_date">
+      </div>
+      <button type="button" id="add_date_button" (click)="addDateRange()">Add</button>
+      <label>Days before cancelation :</label>
+      <input type="number" id="cancel-days-input">
+    </div>
   </div>
 
-  <div class="button-container">
-    <button type="submit">Create</button>
+  <div class="second-row">
+    <button type="button" (click)="onCreateClick()">Create</button>
   </div>
-</form>
-</body>
-</html>
+</div>
+</div>
+
