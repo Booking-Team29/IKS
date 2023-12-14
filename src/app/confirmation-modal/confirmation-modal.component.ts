@@ -12,10 +12,10 @@ export class ConfirmationModalComponent {
   @Input() onConfirm!: Function;
 
   showModal: boolean = false;
-  actionName: string = '';
+  modalText: string = '';
 
   openModal(inputText: string) {
-    this.actionName = inputText;
+    this.modalText = inputText;
     this.showModal = true;
   }
 
