@@ -30,7 +30,7 @@ const changeAccommodationObj: ChangeAccommodationDTO = {
   PricingType: PricingType.Guest,
   DaysForCancellation: 1,
   Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.Denied,
+  AccommodationStatus: AccommodationStatus.DENIED,
   Images: ['Test Image'],
   Type: AccommodationType.Apartment,
   AvaliableDates: [new Date()]
@@ -47,7 +47,7 @@ const createAccommodationObj: CreateAccommodationDTO = {
   PricingType: PricingType.Guest,
   DaysForCancellation: 1,
   Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.Denied,
+  AccommodationStatus: AccommodationStatus.DENIED,
   Images: ['Test Image'],
   Type: AccommodationType.Apartment,
   AvaliableDates: [new Date()]
@@ -65,7 +65,7 @@ const getAccommodationObj: GetAccommodationDTO = {
   PricingType: PricingType.Guest,
   DaysForCancellation: 1,
   Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.Denied,
+  AccommodationStatus: AccommodationStatus.DENIED,
   Images: ['Test Image'],
   Type: AccommodationType.Apartment,
   AvaliableDates: [new Date()]
@@ -82,7 +82,7 @@ const approveAccommodationObj: ApproveAccommodationDTO = {
   PricingType: PricingType.Guest,
   DaysForCancellation: 1,
   Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.Approved,
+  AccommodationStatus: AccommodationStatus.APPROVED,
   Images: ['Test Image'],
   Type: AccommodationType.Apartment,
   AvaliableDates: [new Date()]
