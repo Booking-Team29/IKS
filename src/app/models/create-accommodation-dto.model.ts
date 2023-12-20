@@ -1,21 +1,21 @@
 import { AccommodationStatus } from "./accommodation-status.enum";
 import { AccommodationType } from "./accommodation-type.enum";
-import { PricingType } from "./price-type.enum";
+import { PricingType } from "./pricing-type.enum";
 import { Price } from "./price.model";
 
 export interface CreateAccommodationDTO {
-  Name: string;
-  Description: string;
-  Location: string;
-  LocationCoordinates: number[];
-  MinGuests: number;
-  MaxGuests: number;
+  name: string;
+  description: string;
+  location: string;
+  locationCoordinates: number[];
+  minGuests: number;
+  maxGuests: number;
   prices: Price[];
-  PricingType: PricingType;
-  DaysForCancellation: number;
-  Amenities: string[];
-  AccommodationStatus: AccommodationStatus;
-  Images: string[];
-  Type: AccommodationType;
-  AvaliableDates: Date[];
+  pricingType: PricingType;
+  daysForCancellation: number;
+  amenities: string[];
+  accommodationStatus: AccommodationStatus;
+  images: string[];
+  type: AccommodationType;
+  avaliableDates: Date[];
 }
