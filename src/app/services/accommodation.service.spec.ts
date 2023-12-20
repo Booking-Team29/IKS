@@ -14,78 +14,79 @@ import { CreateAccommodationDTO } from '../models/create-accommodation-dto.model
 import { ApproveAccommodationDTO } from '../models/approve-accommodation-dto.model';
 import { ChangeAccommodationDTO } from '../models/change-accommodation-dto.model';
 import { GetAccommodationDTO } from '../models/get-accommodation-dto.model';
-import { PricingType } from '../models/price-type.enum';
+import { PriceType } from '../models/price-type.enum';
+import { PricingType } from '../models/pricing-type.enum';
 import { AccommodationStatus } from '../models/accommodation-status.enum';
 import { AccommodationType } from '../models/accommodation-type.enum';
 
 
 const changeAccommodationObj: ChangeAccommodationDTO = {
-  Name: 'Test Accommodation',
-  Description: 'Test Description',
-  Location: 'Test Location',
-  LocationCoordinates: [1, 1],
-  MinGuests: 1,
-  MaxGuests: 2,
+  name: 'Test Accommodation',
+  description: 'Test Description',
+  location: 'Test Location',
+  locationCoordinates: [1, 1],
+  minGuests: 1,
+  maxGuests: 2,
   prices: [],
-  PricingType: PricingType.Guest,
-  DaysForCancellation: 1,
-  Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.DENIED,
-  Images: ['Test Image'],
-  Type: AccommodationType.Apartment,
-  AvaliableDates: [new Date()]
+  pricingType: PricingType.GUEST,
+  daysForCancellation: 1,
+  amenities: ['Test Amenity'],
+  accommodationStatus: AccommodationStatus.DENIED,
+  images: ['Test Image'],
+  type: AccommodationType.APARTMENT,
+  avaliableDates: [new Date()]
 };
 
 const createAccommodationObj: CreateAccommodationDTO = {
-  Name: 'Test Accommodation',
-  Description: 'Test Description',
-  Location: 'Test Location',
-  LocationCoordinates: [1, 1],
-  MinGuests: 1,
-  MaxGuests: 2,
+  name: 'Test Accommodation',
+  description: 'Test Description',
+  location: 'Test Location',
+  locationCoordinates: [1, 1],
+  minGuests: 1,
+  maxGuests: 2,
   prices: [],
-  PricingType: PricingType.Guest,
-  DaysForCancellation: 1,
-  Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.DENIED,
-  Images: ['Test Image'],
-  Type: AccommodationType.Apartment,
-  AvaliableDates: [new Date()]
+  pricingType: PricingType.GUEST,
+  daysForCancellation: 1,
+  amenities: ['Test Amenity'],
+  accommodationStatus: AccommodationStatus.DENIED,
+  images: ['Test Image'],
+  type: AccommodationType.APARTMENT,
+  avaliableDates: [new Date()]
 };
 
 const getAccommodationObj: GetAccommodationDTO = {
   id: 1,
-  Name: 'Test Accommodation',
-  Description: 'Test Description',
-  Location: 'Test Location',
-  LocationCoordinates: [1, 1],
-  MinGuests: 1,
-  MaxGuests: 2,
+  name: 'Test Accommodation',
+  description: 'Test Description',
+  location: 'Test Location',
+  locationCoordinates: [1, 1],
+  minGuests: 1,
+  maxGuests: 2,
   prices: [],
-  PricingType: PricingType.Guest,
-  DaysForCancellation: 1,
-  Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.DENIED,
-  Images: ['Test Image'],
-  Type: AccommodationType.Apartment,
-  AvaliableDates: [new Date()]
+  pricingType: PricingType.GUEST,
+  daysForCancellation: 1,
+  amenities: ['Test Amenity'],
+  accommodationStatus: AccommodationStatus.DENIED,
+  images: ['Test Image'],
+  type: AccommodationType.APARTMENT,
+  avaliableDates: [new Date()]
 };
 
 const approveAccommodationObj: ApproveAccommodationDTO = {
-  Name: 'Test Accommodation',
-  Description: 'Test Description',
-  Location: 'Test Location',
-  LocationCoordinates: [1, 1],
-  MinGuests: 1,
-  MaxGuests: 2,
+  name: 'Test Accommodation',
+  description: 'Test Description',
+  location: 'Test Location',
+  locationCoordinates: [1, 1],
+  minGuests: 1,
+  maxGuests: 2,
   prices: [],
-  PricingType: PricingType.Guest,
-  DaysForCancellation: 1,
-  Amenities: ['Test Amenity'],
-  AccommodationStatus: AccommodationStatus.APPROVED,
-  Images: ['Test Image'],
-  Type: AccommodationType.Apartment,
-  AvaliableDates: [new Date()]
+  pricingType: PricingType.GUEST,
+  daysForCancellation: 1,
+  amenities: ['Test Amenity'],
+  accommodationStatus: AccommodationStatus.APPROVED,
+  images: ['Test Image'],
+  type: AccommodationType.APARTMENT,
+  avaliableDates: [new Date()]
 };
 
 const baseUrl: string = 'http://localhost:8080/api/v1';

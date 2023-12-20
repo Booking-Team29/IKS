@@ -1,4 +1,4 @@
-export enum PricingType {
-  Guest,
-  Accommodation
+export enum PriceType {
+  WEEKEND = "WEEKEND",
+  CUSTOM = "CUSTOM"
 }

@@ -1,7 +1,7 @@
-import { PriceType } from "./pricing-type.enum";
+import { PriceType } from "./price-type.enum";
 
 export interface Price {
-  Type: PriceType;
+  type: PriceType;
   price: number;
   start: Date;
   end: Date;
