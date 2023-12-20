@@ -77,7 +77,7 @@ export class ApprovalCardComponent {
       let accommodation = response;
 
       let approvedAccommodationDTO = accommodation;
-      approvedAccommodationDTO.AccommodationStatus = AccommodationStatus.APPROVED;
+      approvedAccommodationDTO.accommodationStatus = AccommodationStatus.APPROVED;
 
       this.service.approve(`${requestID}`, approvedAccommodationDTO).subscribe(response => {
         console.log(response);
@@ -95,7 +95,7 @@ export class ApprovalCardComponent {
       let accommodation = response;
 
       let approvedAccommodationDTO = accommodation;
-      approvedAccommodationDTO.AccommodationStatus = AccommodationStatus.DENIED;
+      approvedAccommodationDTO.accommodationStatus = AccommodationStatus.DENIED;
 
       this.service.approve(`${requestID}`, approvedAccommodationDTO).subscribe(response => {
         console.log(response);
