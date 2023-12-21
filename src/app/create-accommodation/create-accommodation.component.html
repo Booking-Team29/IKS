@@ -1,0 +1,148 @@
+<div id="main-content">
+<h1>Create New Accommodation</h1>
+<div class="form-container">
+  <div class="first-row">
+    <div class="column">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" cols="35"></textarea>
+      <label>Amenities: </label>
+      <div class="table-container">
+        <table id="amenities-table" *ngIf="amenitiesList.length > 0">
+          <thead>
+          <tr>
+            <th>Amenity</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let amenity of amenitiesList; let i = index">
+            <td>{{ amenity }}</td>
+            <td class="promjena-boje" (click)="deleteAmenity(i)">X</td>
+          </tr>
+          </tbody>
+        </table>
+        <p *ngIf="amenitiesList.length === 0">Enter amenities.</p>
+      </div>
+      <select id="amenities-select" name="amenities-select">
+        <option value="wi-fi">Wi-fi</option>
+        <option value="tv">TV</option>
+        <option value="air-conditioner">Air conditioner</option>
+        <option value="parking-lot">Parking lot</option>
+        <option value="gym">Gym</option>
+      </select>
+      <button type="button" id="add_amenity_button" (click)="addAmenity()">Add</button>
+      <label>Photos :</label>
+      <input type="file" id="photos-input" name="photos" multiple>
+      <button type="button" id="add_photo_button" (click)="addPhoto()">Add</button><br>
+      <div class="table-container">
+        <table id="photos-table" *ngIf="photosList.length > 0">
+          <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let photo of photosList; let i = index">
+            <img [src]="photo" alt="Photo" style="width: 100%; height: 70px;">
+            <td class="promjena-boje" (click)="deletePhoto(i)">X</td>
+          </tr>
+          </tbody>
+        </table>
+        <p *ngIf="photosList.length === 0">Enter photos.</p>
+      </div>
+    </div>
+
+    <div class="column">
+      <label>Prices:</label>
+      <div class="table-container">
+        <table *ngIf="prices.length > 0">
+          <thead>
+          <tr>
+            <th>Date from</th>
+            <th>Date to</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let price of prices; let i = index">
+            <td>{{ price.start | date }}</td>
+            <td>{{ price.end| date }}</td>
+            <td>{{ price.price}}</td>
+            <td>{{ price.type}}</td>
+            <td class="promjena-boje" (click)="deletePrice(i)">X</td>
+          </tr>
+          </tbody>
+        </table>
+        <p *ngIf="prices.length === 0">Enter prices.</p>
+      </div>
+      <label>Enter date range :</label>
+      <div class="row">
+        <input type="date" id="price-start-date">
+        <input type="date" id="price-end-date">
+      </div>
+      <label>Enter price and price type :</label>
+      <div class="row">
+        <input type="number" id="price-input" min="0">
+        <select id="price_type">
+          <option value="custom">custom</option>
+          <option value="weekend">weekend</option>
+        </select>
+      </div>
+      <button (click)="addPrice()">Add</button>
+      <label for="min_guests">Minimum number of guests:</label>
+      <input type="number" id="min_guests" name="min_guests" min="0">
+      <label for="max_guests">Maximum number of guests:</label>
+      <input type="number" id="max_guests" name="max_guests" min="0">
+      <label for="type-pricing">Pricing Type:</label>
+      <select id="type-pricing" name="type-pricing">
+        <option value="guest">Guest</option>
+        <option value="accommodation">Accommodation</option>
+      </select>
+    </div>
+    <div class="column">
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location">
+      <label for="accommodation_type">Type:</label>
+      <select id="accommodation_type" name="accommodation_type">
+        <option value="studio">Studio</option>
+        <option value="room">Room</option>
+      </select>
+      <label>Available dates :</label>
+      <div class="table-container">
+        <table id="dates-table" *ngIf="datesList.length > 0">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let date of datesList; let i = index">
+            <td>{{ date | date }}</td>
+            <td class="promjena-boje" (click)="deleteDate(i)">X</td>
+          </tr>
+          </tbody>
+        </table>
+        <p *ngIf="datesList.length === 0">Enter avaliable dates.</p>
+      </div>
+      <label>Enter date :</label>
+      <div class="row">
+        <input type="date" id="date" name="date">
+      </div>
+      <button type="button" id="add_date_button" (click)="addDate()">Add</button>
+      <label>Days before cancellation :</label>
+      <input type="number" id="cancel-days-input" min="0">
+    </div>
+  </div>
+
+  <div class="second-row">
+    <button type="button" (click)="onCreateClick()">Create</button>
+  </div>
+</div>
+</div>
+
