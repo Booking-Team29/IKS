@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserRequestStatus } from '../user-request-status.enum';
 import { Router } from '@angular/router';
@@ -8,11 +8,11 @@ import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-m
 import { HttpClientModule } from '@angular/common/http';
 
 const classSelectorMap: { [key in UserRequestStatus]: string } = {
-    [UserRequestStatus.APPROVED]: 'status-approved',
-    [UserRequestStatus.DECLINED]: 'status-declined',
-    [UserRequestStatus.CREATED]: 'status-created',
-    [UserRequestStatus.PENDING]: 'status-pending',
-    [UserRequestStatus.CHANGED]: 'status-changed',
+  [UserRequestStatus.APPROVED]: 'status-approved',
+  [UserRequestStatus.DENIED]: 'status-declined',
+  [UserRequestStatus.CREATED]: 'status-created',
+  [UserRequestStatus.PENDING]: 'status-pending',
+  [UserRequestStatus.CHANGED]: 'status-changed',
 };
 
 @Component({
@@ -31,14 +31,26 @@ export class ApprovalCardComponent {
   private _name: string;
   private _requestID;
 
+
+  @Input() data: any;
+
   constructor(
     private router: Router,
     private service: AccommodationService,
   ) {
-    this._requestID = 1; // impelelemnt :DDDDDDDd
+    this._requestID = -1;
     this._status = UserRequestStatus.CREATED;
     this._statusClassSelector = classSelectorMap[this._status];
-    this._name = "Place (holder)";
+    this._name = "placeholder";
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['data']) {
+      this._requestID = this.data.id;
+      this._status = this.data.accommodationStatus;
+      this._statusClassSelector = classSelectorMap[this._status];
+      this._name = this.data.name;
+    }
   }
 
   @Input()
@@ -72,7 +84,9 @@ export class ApprovalCardComponent {
     return this._requestID;
   }
 
-  approveRequest(requestID: number) {
+  approveRequest() {
+    let requestID = this.requestID;
+
     this.service.get(`${requestID}`).subscribe(response => {
       let accommodation = response;
 
@@ -90,25 +104,30 @@ export class ApprovalCardComponent {
     });
   }
 
-  declineRequest(requestID: number) {
+  declineRequest() {
+    let requestID = this.requestID;
+
     this.service.get(`${requestID}`).subscribe(response => {
       let accommodation = response;
 
-      let approvedAccommodationDTO = accommodation;
-      approvedAccommodationDTO.accommodationStatus = AccommodationStatus.DENIED;
+      let accommodationDTO = accommodation;
+      accommodationDTO.accommodationStatus = AccommodationStatus.DENIED;
 
-      this.service.approve(`${requestID}`, approvedAccommodationDTO).subscribe(response => {
+      this.service.update(`${requestID}`, accommodationDTO).subscribe(response => {
         console.log(response);
 
         this.confirmationModal.openModal('Successfully declined accommodation creation request!');
 
-        this._status = UserRequestStatus.DECLINED;
-        this._statusClassSelector = classSelectorMap[UserRequestStatus.DECLINED];
+        this._status = UserRequestStatus.DENIED;
+        this._statusClassSelector = classSelectorMap[UserRequestStatus.DENIED];
       });
     });
   }
 
-  openDetails(requestID: number) {
-    this.router.navigate(['/view-accommodation-creation-request', requestID]);
+  openDetails() {
+    let requestID = this.requestID;
+
+    this.router.navigate(['/accommodation/' + requestID]);
+
   }
 }

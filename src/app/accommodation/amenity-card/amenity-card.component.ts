@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,4 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class AmenityCardComponent {
 
+  @Input() amenityName: any;
+
+  name: string = "placeholder";
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['amenityName']) {
+      this.name = this.amenityName;
+    }
+  }
 }
