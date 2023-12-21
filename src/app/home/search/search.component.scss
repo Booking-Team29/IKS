@@ -3,24 +3,28 @@
 .booking-search {
     @include flex();
     flex-wrap: wrap;
-    max-width: 80vw;
-    height: 15vh;
+    max-width: 60vw;
     background-color: white;
     border-radius: 20px;
     color: $main_blue;
     font-weight: bold;
+    padding: 1rem;
 }
 
 #numberOfPeople {
     width: 5vw;
 }
 
-.upper-search, .lower-search{
+#lowestRating, #highestRating {
+    width: 2vw;
+}
+
+.upper-search, .lower-search, .search-div{
     @include flex();
     width: 100vw;
     height: 5vh;
-    margin: 0;
     padding: 0;
+    padding-bottom: 2vh;
 
     .single-input {
         margin-left: 2vw;
