@@ -1,6 +1,6 @@
 export enum UserRequestStatus {
   APPROVED = 'APPROVED',
-  DECLINED = 'DECLINED',
+  DENIED = 'DENIED',
   CREATED = 'CREATED',
   PENDING = 'PENDING',
   CHANGED = 'CHANGED',
