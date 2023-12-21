@@ -45,8 +45,14 @@ export class AccommodationService {
     return this.http.get<AccommodationDTO[]>(`${this.favoriteUrl}/${guestId}`);
   }
 
-  search(): Observable<AccommodationDTO[]> {
-    return this.http.get<AccommodationDTO[]>(this.accommodationUrl + '/accommodationSearch');
+  public search(numberOfPeople: Number, location: String, start: String, end: String): Observable<AccommodationDTO[]> {
+    let url = this._accommodationUrl + '/accommodationSearch';
+    url = url + `?location=${location}`;
+    url = url + `&peopleNumber=${numberOfPeople}`;
+    if (start && end) {
+      url = url + `&start=${start}&end=${end}`;
+    }
+    return this.http.get<AccommodationDTO[]>(url);
   }
 
   get(accommodationId: string): Observable<GetAccommodationDTO> {

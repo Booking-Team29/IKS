@@ -3,19 +3,82 @@
     @include flex();
     flex-wrap: wrap;
     background-color: $main_blue;
-    max-width: 100%;
-    min-height: 100%;
+    max-width: 100vw;
+    min-height: 82vh;
     margin: 0;
     padding: 0;
     padding-top: 5vh;
 }
 
 .booking-search {
+    @include flex();
     width: 100vw;
 }
 
 .results {
     @include flex();
+    align-items: flex-start;
     flex-wrap: wrap;
+    margin-top: 5vh;
+    width: 80vw;
+}
+
+.filters-div {
+    width: 20vw;
+    border: 2px solid white;
+    background-color: white;
+    color: $main_blue;
+    border-radius: 20px;
+}
+
+.results-wrapper {
+    @include flex();
+    align-items: flex-start;
+    justify-self: flex-start;
+    justify-content: flex-start;
+    width: 100vw;
+}
+
+.rating-filters, .amenities-filters, .property-filters {
+    @include flex();
+    flex-wrap: wrap;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    .cb-div {
+        @include flex();
+        width: 70%;
+        margin-right: 30%;
+        justify-content: right;
+        input {
+            margin-left: 0.5vw;
+        }
+    }
+    p {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 0.5vh;
+    }
+
+    input {
+        color: $main_blue;
+    }
+
+    font-size: 1vw;
+}
+
+.rating-filters input{
+    width: 20%;
+    margin-left: 0.5vw;
+}
+
+.filter-wrapper {
+    @include flex();
+    flex-direction: column;
+    align-items: flex-start;
+    justify-self: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width: 19vw;
     margin-top: 5vh;
 }

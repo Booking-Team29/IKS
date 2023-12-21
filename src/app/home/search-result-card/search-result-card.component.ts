@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class SearchResultCardComponent {
     constructor(private router: Router) { }
+    @Input() result: any;
+
   navigate() {
-    this.router.navigate(['/accommodation/1'])
+    this.router.navigate([`/accommodation/${this.result.id}`])
   }
 }
