@@ -1,11 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 
 @Component({
-  template: `
-      <gallery [items]="images"></gallery>
-  `,
   selector: 'app-gallery-carousel',
   standalone: true,
   imports: [GalleryModule],
@@ -15,11 +12,31 @@ import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
 export class GalleryCarouselComponent {
   images: GalleryItem[] = [];
 
-  ngOnInit() {
-    this.images = [
-      new ImageItem({ src: 'https://www.savills.co.uk/_images/adobestock-539646437.jpg', thumb: 'https://www.savills.co.uk/_images/adobestock-539646437.jpg' }),
-      new ImageItem({ src: 'https://www.savills.co.uk/_images/adobestock-539646437.jpg', thumb: 'https://www.savills.co.uk/_images/adobestock-539646437.jpg' }),
-      new ImageItem({ src: 'https://www.savills.co.uk/_images/adobestock-539646437.jpg', thumb: 'https://www.savills.co.uk/_images/adobestock-539646437.jpg' }),
-    ]
+  @Input() data: any;
+
+ //  ngOnInit() {
+ //    this.images = [
+ //      new ImageItem({ src: this.data.images[0], thumb: this.data.images[0]}),
+ //      new ImageItem({ src: this.data.images[1], thumb: this.data.images[1]}),
+ //    ]
+ //  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(this.data);
+
+      // for some reason it works here?
+      this.images = [
+        new ImageItem({ src: this.data[0], thumb: this.data[0]}),
+        new ImageItem({ src: this.data[1], thumb: this.data[1]}),
+      ]
+
+    if (changes['data'] && this.data && Array.isArray(this.data.images)) {
+      // but not here???
+      console.log( "hello"  + this.data)
+      this.images = [
+        new ImageItem({ src: this.data[0], thumb: this.data[0]}),
+        new ImageItem({ src: this.data[1], thumb: this.data[1]}),
+      ]
+    }
   }
 }

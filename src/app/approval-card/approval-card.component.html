@@ -4,12 +4,12 @@
     <div class="card-content">
       <h5 class="card-status {{ statusClassSelector }}">{{ status }}</h5>
       <div class="card-buttons">
-        <button (click)="openDetails(requestID)" class="action-btn btn-details">Details</button>
+        <button (click)="openDetails()" class="action-btn btn-details">Details</button>
 
-        <button (click)="approveRequest(requestID)" class="action-btn btn-approve">Approve</button>
+        <button (click)="approveRequest()" class="action-btn btn-approve">Approve</button>
         <app-confirmation-modal #confirmationModal [onConfirm]="confirmationModal.closeModal"></app-confirmation-modal>
 
-        <button (click)="declineRequest(requestID)" class="action-btn btn-decline">Decline</button>
+        <button (click)="declineRequest()" class="action-btn btn-decline">Deny</button>
         <app-confirmation-modal #confirmationModal [onConfirm]="confirmationModal.closeModal"></app-confirmation-modal>
       </div>
     </div>

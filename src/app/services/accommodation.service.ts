@@ -55,6 +55,10 @@ export class AccommodationService {
     return this.http.get<AccommodationDTO[]>(url);
   }
 
+  getAll(): Observable<AccommodationDTO[]> {
+    return this.http.get<AccommodationDTO[]>(`${this.accommodationUrl}`);
+  }
+
   get(accommodationId: string): Observable<GetAccommodationDTO> {
     return this.http.get<GetAccommodationDTO>(`${this.accommodationUrl}/${accommodationId}`);
   }
