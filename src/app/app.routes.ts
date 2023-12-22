@@ -7,6 +7,9 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AccommodationCreationRequestsComponent } from './accommodation/accommodation-creation-requests/accommodation-creation-requests.component';
 import { ReservationPageComponent } from './reservation/reservation-page/reservation-page.component';
+import {CreateAccommodationComponent} from "./create-accommodation/create-accommodation.component";
+import {EditAccommodationComponent} from "./edit-accommodation/edit-accommodation.component";
+import {ViewAccommodationsComponent} from "./view-accommodations/view-accommodations.component";
 
 export const routes: Routes = [
     {path: '', component: SearchPageComponent },
@@ -22,4 +25,7 @@ export const routes: Routes = [
     {path: 'edit-profile', component: EditProfileComponent },
     {path: 'accommodation-creation-requests', component: AccommodationCreationRequestsComponent },
     {path: 'reservation-page', component: ReservationPageComponent },
+    {path: 'create-accommodation', component: CreateAccommodationComponent},
+    {path: 'edit-accommodation', component: EditAccommodationComponent},
+    {path: 'view-accommodations', component: ViewAccommodationsComponent},
 ];
