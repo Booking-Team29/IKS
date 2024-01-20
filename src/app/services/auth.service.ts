@@ -25,6 +25,10 @@ export class AuthService {
       return this.http.post<AuthResponse>('http://localhost:8080/api/v1/account/login', auth, { headers: this.headers});
   }
 
+  register(account: any): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>('http://localhost:8080/api/v1/account/register', account, {headers: this.headers});
+  }
+
   logout() {
     localStorage.clear();
   }
