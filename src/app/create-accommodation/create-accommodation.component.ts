@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AccommodationService} from "../services/accommodation.service";
 import {AccommodationType} from "../models/accommodation-type.enum";
@@ -8,9 +8,9 @@ import {PriceType} from "../models/price-type.enum";
 import {AccommodationStatus} from "../models/accommodation-status.enum";
 import {HttpClientModule} from "@angular/common/http";
 import {PricingType} from "../models/pricing-type.enum";
-import {Accommodation} from "../models/accommodation.model";
-import {response} from "express";
 import {AccommodationDTO} from "../models/accommodation-dto.model";
+import {DateRange} from "../models/date-range.model";
+import {ConfirmationMethod} from "../models/confirmation-method.enum";
 
 
 @Component({
@@ -21,7 +21,7 @@ import {AccommodationDTO} from "../models/accommodation-dto.model";
   templateUrl: './create-accommodation.component.html',
   styleUrl: './create-accommodation.component.scss'
 })
-export class CreateAccommodationComponent implements OnInit{
+export class CreateAccommodationComponent {
 
   constructor(private accommodationService: AccommodationService) {
   }
@@ -29,18 +29,13 @@ export class CreateAccommodationComponent implements OnInit{
   amenitiesList: string[] = [];
   dates: string[] = [];
   prices: Price[] = [];
-  datesList: string[] = [];
+  datesList: string[][] = [];
   photosList: string[] = [];
+  dateRangeList: DateRange[] = [];
   private accommodationList: AccommodationDTO[] = [];
 
 //  this.service.get(`${requestID}`).subscribe(response => {
 //let accommodation = response;
-  ngOnInit(){
-    this.accommodationService.getAllAccommodation().subscribe(response => {
-      this.accommodationList = response;
-      console.log(this.accommodationList);
-    })
-  }
 
   addPhoto(): void {
     let input = document.getElementById('photos-input') as HTMLInputElement;
@@ -62,7 +57,7 @@ export class CreateAccommodationComponent implements OnInit{
       }
 
       // Ispisivanje liste stringova (putanja fotografija) u konzolu
-      console.log('Lista fotografija:', this.photosList);
+      //console.log('Lista fotografija:', this.photosList);
       // Ovde možete dalje manipulisati listom fotografija prema vašim potrebama
     } else {
       console.log('Niste izabrali nijednu fotografiju.');
@@ -100,6 +95,19 @@ export class CreateAccommodationComponent implements OnInit{
     let type = (document.getElementById('accommodation_type') as HTMLSelectElement).value;
     let cancel_days = (document.getElementById('cancel-days-input') as HTMLInputElement).value;
     let pricingType = (document.getElementById('type-pricing') as HTMLSelectElement).value;
+    console.log(name);
+    console.log(description);
+    console.log(this.amenitiesList);
+    console.log(this.photosList);
+    console.log(this.prices);
+    console.log(minGuests);
+    console.log(maxGuests);
+    console.log(pricingType);
+    console.log(location);
+    console.log(type);
+    console.log(this.dateRangeList);
+    console.log(cancel_days);
+
 
 
     return (
@@ -113,19 +121,59 @@ export class CreateAccommodationComponent implements OnInit{
       pricingType.trim() !== '' &&
       location.trim() !== '' &&
       type.trim() !== '' &&
-      this.dates.length > 0 &&
+      this.datesList.length > 0 &&
       cancel_days.trim() !== '')
       ;
   }
 
-  addDate(): void {
-    let dateValue = (document.getElementById('date') as HTMLInputElement).value;
-    this.datesList.push(dateValue);
+  addDateRange(): void {
+    let startDateValue = (document.getElementById('start-date') as HTMLInputElement).value;
+    let endDateValue = (document.getElementById('end-date') as HTMLInputElement).value;
+
+    if (this.checkDateRange(startDateValue, endDateValue)) {
+      this.datesList.push([startDateValue, endDateValue]);
+      console.log('Datumi uspešno dodati.');
+    } else {
+      console.log('Datumi nisu validni, nisu dodati.');
+    }
   }
-  deleteDate(index: number): void {
+  deleteDateRange(index: number): void {
     console.log('treba obrisat')
     this.datesList.splice(index, 1);
   }
+  checkDateRange(startDateString: string, endDateString: string): boolean {
+    // Provera da li su uneti datumi u ispravnom formatu
+    let startDate = new Date(startDateString);
+    let endDate = new Date(endDateString);
+
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      console.log('Neispravan format datuma.');
+      return false;
+    }
+
+    // Provera da li je početni datum manji od krajnjeg
+    if (startDate >= endDate) {
+      console.log('Početni datum mora biti manji od krajnjeg datuma.');
+      return false;
+    }
+
+    // Provera da li se uneti datumi poklapaju sa datumima iz liste
+    for (let [existingStartDate, existingEndDate] of this.datesList) {
+      let existingStart = new Date(existingStartDate);
+      let existingEnd = new Date(existingEndDate);
+
+      if ((startDate >= existingStart && startDate <= existingEnd) ||
+          (endDate >= existingStart && endDate <= existingEnd) ||
+          (startDate <= existingStart && endDate >= existingEnd)) {
+        console.log('Uneti datumi se poklapaju sa već postojećim datumima.');
+        return false;
+      }
+    }
+
+    // Ako su svi uslovi ispunjeni, datumi su validni
+    return true;
+  }
+
 
   addPrice(): void {
     let startDate = (document.getElementById('price-start-date') as HTMLInputElement).value;
@@ -151,6 +199,17 @@ export class CreateAccommodationComponent implements OnInit{
       console.log('Start datum treba da bude manji od End datuma.');
       return;
     }
+    for (let existingPrice of this.prices) {
+      if (
+          (startDateObj >= existingPrice.start && startDateObj <= existingPrice.end) ||
+          (endDateObj >= existingPrice.start && endDateObj <= existingPrice.end) ||
+          (startDateObj <= existingPrice.start && endDateObj >= existingPrice.end)
+      ) {
+        console.log('Uneti datumi se poklapaju sa postojećim cenama.');
+        return;
+      }
+    }
+
     let selectedPriceType: PriceType;
     // Postavljanje PriceType na temelju odabira korisnika
     if (priceType.trim().toLowerCase() === 'custom') {
@@ -191,6 +250,7 @@ export class CreateAccommodationComponent implements OnInit{
       // Dodatne radnje ako su uslovi ispunjeni
     } else {
       console.log('NISU SVA POLJA UNIJETA');
+      return;
     }
 
     let selectedPriceType: PricingType;
@@ -214,13 +274,15 @@ export class CreateAccommodationComponent implements OnInit{
       amenities: this.amenitiesList,
       accommodationStatus: AccommodationStatus.CREATED,
       images:this.photosList,
-      avaliableDates: this.dates.map(dateString => new Date(dateString)),
-      daysForCancellation: daysForCancellation
+      avaliableDates: this.dateRangeList = this.datesList.map(dateArray => ({ startDate: new Date(dateArray[0]), endDate: new Date(dateArray[1]) })),
+      daysForCancellation: daysForCancellation,
+      confirmationMethod: ConfirmationMethod.MANUAL
     };
 
     this.accommodationService.create(createAccommodationObj).subscribe(
       (response) => {
         console.log('Uspešno kreiran smeštaj:', response);
+        alert('Uspešno kreiran smeštaj:');
       },
       (error) => {
         console.error('Greška prilikom kreiranja smeštaja:', error);

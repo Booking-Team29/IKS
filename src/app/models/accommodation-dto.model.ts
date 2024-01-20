@@ -2,6 +2,7 @@ import { AccommodationStatus } from "./accommodation-status.enum";
 import { AccommodationType } from "./accommodation-type.enum";
 import { PricingType } from "./pricing-type.enum";
 import { Price } from "./price.model";
+import {DateRange} from "./date-range.model";
 
 export interface AccommodationDTO {
   name: string;
@@ -17,5 +18,5 @@ export interface AccommodationDTO {
   accommodationStatus: AccommodationStatus;
   images: string[];
   type: AccommodationType;
-  availableDates: Date[];
+  availableDates: DateRange[];
 }

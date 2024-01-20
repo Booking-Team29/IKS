@@ -26,6 +26,6 @@ export const routes: Routes = [
     {path: 'accommodation-creation-requests', component: AccommodationCreationRequestsComponent },
     {path: 'reservation-page', component: ReservationPageComponent },
     {path: 'create-accommodation', component: CreateAccommodationComponent},
-    {path: 'edit-accommodation', component: EditAccommodationComponent},
+    {path: 'edit-accommodation/:id', component: EditAccommodationComponent},
     {path: 'view-accommodations', component: ViewAccommodationsComponent},
 ];
