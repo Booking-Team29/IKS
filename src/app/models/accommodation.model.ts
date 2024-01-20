@@ -1,6 +1,8 @@
 import { AccommodationStatus } from "./accommodation-status.enum";
 import { PricingType } from "./pricing-type.enum";
 import { Price } from "./price.model";
+import {DateRange} from "./date-range.model";
+import {ConfirmationMethod} from "./confirmation-method.enum";
 
 export interface Accommodation {
   id: number;
@@ -17,5 +19,6 @@ export interface Accommodation {
   accommodationStatus: AccommodationStatus;
   images: string[];
   type: AccommodationStatus;
-  availableDates: Date[];
+  availableDates: Date[][];
+  confirmationMethod: ConfirmationMethod;
 }

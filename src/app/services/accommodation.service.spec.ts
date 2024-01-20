@@ -18,6 +18,7 @@ import { PriceType } from '../models/price-type.enum';
 import { PricingType } from '../models/pricing-type.enum';
 import { AccommodationStatus } from '../models/accommodation-status.enum';
 import { AccommodationType } from '../models/accommodation-type.enum';
+import {ConfirmationMethod} from "../models/confirmation-method.enum";
 
 
 const changeAccommodationObj: ChangeAccommodationDTO = {
@@ -34,7 +35,8 @@ const changeAccommodationObj: ChangeAccommodationDTO = {
   accommodationStatus: AccommodationStatus.DENIED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [new Date()]
+    availableDates: [],
+  confirmationMethod: ConfirmationMethod.MANUAL
 };
 
 const createAccommodationObj: CreateAccommodationDTO = {
@@ -51,7 +53,8 @@ const createAccommodationObj: CreateAccommodationDTO = {
   accommodationStatus: AccommodationStatus.DENIED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [new Date()]
+  availableDates: [],
+  confirmationMethod: ConfirmationMethod.MANUAL
 };
 
 const getAccommodationObj: GetAccommodationDTO = {
@@ -69,7 +72,8 @@ const getAccommodationObj: GetAccommodationDTO = {
   accommodationStatus: AccommodationStatus.DENIED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [new Date()]
+  availableDates: [[]],
+  confirmationMethod: ConfirmationMethod.AUTOMATIC
 };
 
 const approveAccommodationObj: ApproveAccommodationDTO = {
@@ -86,7 +90,7 @@ const approveAccommodationObj: ApproveAccommodationDTO = {
   accommodationStatus: AccommodationStatus.APPROVED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [new Date()]
+  availableDates: []
 };
 
 const baseUrl: string = 'http://localhost:8080/api/v1';

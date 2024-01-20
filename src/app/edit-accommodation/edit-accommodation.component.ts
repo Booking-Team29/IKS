@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {DatePipe, NgForOf, NgIf} from "@angular/common";
+import {Component} from '@angular/core';
+import {CommonModule} from "@angular/common";
 import {AccommodationService} from "../services/accommodation.service";
 import {Price} from "../models/price.model";
 import {PriceType} from "../models/price-type.enum";
@@ -7,29 +7,58 @@ import {PricingType} from "../models/pricing-type.enum";
 import {CreateAccommodationDTO} from "../models/create-accommodation-dto.model";
 import {AccommodationType} from "../models/accommodation-type.enum";
 import {AccommodationStatus} from "../models/accommodation-status.enum";
+import {DateRange} from "../models/date-range.model";
+import {AccommodationDTO} from "../models/accommodation-dto.model";
+import {HttpClientModule} from "@angular/common/http";
+import {ConfirmationMethod} from "../models/confirmation-method.enum";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-accommodation',
   standalone: true,
-    imports: [
-        DatePipe,
-        NgForOf,
-        NgIf
-    ],
+  imports: [CommonModule, HttpClientModule, FormsModule],
+  providers: [AccommodationService],
   templateUrl: './edit-accommodation.component.html',
   styleUrl: './edit-accommodation.component.scss'
 })
 export class EditAccommodationComponent {
 
   constructor(private accommodationService: AccommodationService) {
+    this.loadData();
   }
 
-  amenitiesList: string[] = [];
+  name: string = "";
+  description: string = "";
+  amenitiesList: string[] = [""];
   dates: string[] = [];
   prices: Price[] = [];
-  datesList: string[] = [];
+  datesList: string[][] = [];
   photosList: string[] = [];
+  private accommodationList: AccommodationDTO[] = [];
+  minGuests: number = 0;
+  maxGuests: number = 0;
+  location: string = "";
+  cancelDays: number = 0;
 
+
+//  this.service.get(`${requestID}`).subscribe(response => {
+//let accommodation = response;
+  loadData(){
+    this.description = 'Opis smeštaja';
+    this.amenitiesList = ["wifi", "conditioner"];
+    const newPrice: Price = {
+      type: PriceType.CUSTOM,
+      price: 10, // Pretvaranje cijene iz stringa u broj
+      start: new Date('01-26-2024'),
+      end: new Date('01-29-2024')
+    };
+    this.prices.push(newPrice);
+    this.minGuests = 2;
+    this.maxGuests = 4;
+    this.location = "Centar 4, Bijeljina";
+    this.datesList.push(["01-25-2024", "01-29-2024"])
+    this.cancelDays = 3;
+  }
   addPhoto(): void {
     let input = document.getElementById('photos-input') as HTMLInputElement;
     let selectedFiles = input.files; // Dobijanje izabranih fajlova
@@ -91,29 +120,69 @@ export class EditAccommodationComponent {
 
 
     return (
-      name.trim() !== '' &&
-      description.trim() !== '' &&
-      this.amenitiesList.length > 0 &&
-      this.photosList.length > 0 && // Provjera da li su slike izabrane
-      this.prices.length > 0 &&
-      minGuests.trim() !== '' &&
-      maxGuests.trim() !== '' &&
-      pricingType.trim() !== '' &&
-      location.trim() !== '' &&
-      type.trim() !== '' &&
-      this.dates.length > 0 &&
-      cancel_days.trim() !== '')
-      ;
+        name.trim() !== '' &&
+        description.trim() !== '' &&
+        this.amenitiesList.length > 0 &&
+        this.photosList.length > 0 && // Provjera da li su slike izabrane
+        this.prices.length > 0 &&
+        minGuests.trim() !== '' &&
+        maxGuests.trim() !== '' &&
+        pricingType.trim() !== '' &&
+        location.trim() !== '' &&
+        type.trim() !== '' &&
+        this.dates.length > 0 &&
+        cancel_days.trim() !== '')
+        ;
   }
 
-  addDate(): void {
-    let dateValue = (document.getElementById('date') as HTMLInputElement).value;
-    this.datesList.push(dateValue);
+  addDateRange(): void {
+    let startDateValue = (document.getElementById('start-date') as HTMLInputElement).value;
+    let endDateValue = (document.getElementById('end-date') as HTMLInputElement).value;
+
+    if (this.checkDateRange(startDateValue, endDateValue)) {
+      this.datesList.push([startDateValue, endDateValue]);
+      console.log('Datumi uspešno dodati.');
+    } else {
+      console.log('Datumi nisu validni, nisu dodati.');
+    }
   }
-  deleteDate(index: number): void {
+  deleteDateRange(index: number): void {
     console.log('treba obrisat')
     this.datesList.splice(index, 1);
   }
+  checkDateRange(startDateString: string, endDateString: string): boolean {
+    // Provera da li su uneti datumi u ispravnom formatu
+    let startDate = new Date(startDateString);
+    let endDate = new Date(endDateString);
+
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      console.log('Neispravan format datuma.');
+      return false;
+    }
+
+    // Provera da li je početni datum manji od krajnjeg
+    if (startDate >= endDate) {
+      console.log('Početni datum mora biti manji od krajnjeg datuma.');
+      return false;
+    }
+
+    // Provera da li se uneti datumi poklapaju sa datumima iz liste
+    for (let [existingStartDate, existingEndDate] of this.datesList) {
+      let existingStart = new Date(existingStartDate);
+      let existingEnd = new Date(existingEndDate);
+
+      if ((startDate >= existingStart && startDate <= existingEnd) ||
+          (endDate >= existingStart && endDate <= existingEnd) ||
+          (startDate <= existingStart && endDate >= existingEnd)) {
+        console.log('Uneti datumi se poklapaju sa već postojećim datumima.');
+        return false;
+      }
+    }
+
+    // Ako su svi uslovi ispunjeni, datumi su validni
+    return true;
+  }
+
 
   addPrice(): void {
     let startDate = (document.getElementById('price-start-date') as HTMLInputElement).value;
@@ -139,6 +208,17 @@ export class EditAccommodationComponent {
       console.log('Start datum treba da bude manji od End datuma.');
       return;
     }
+    for (let existingPrice of this.prices) {
+      if (
+          (startDateObj >= existingPrice.start && startDateObj <= existingPrice.end) ||
+          (endDateObj >= existingPrice.start && endDateObj <= existingPrice.end) ||
+          (startDateObj <= existingPrice.start && endDateObj >= existingPrice.end)
+      ) {
+        console.log('Uneti datumi se poklapaju sa postojećim cenama.');
+        return;
+      }
+    }
+
     let selectedPriceType: PriceType;
     // Postavljanje PriceType na temelju odabira korisnika
     if (priceType.trim().toLowerCase() === 'custom') {
@@ -164,56 +244,4 @@ export class EditAccommodationComponent {
     this.prices.splice(index, 1);
   }
 
-  onCreateClick(): void {
-    let name = (document.getElementById('name') as HTMLInputElement).value;
-    let description = (document.getElementById('description') as HTMLInputElement).value;
-    let location = (document.getElementById('location') as HTMLInputElement).value;
-    let minGuests = parseInt((document.getElementById('min_guests') as HTMLInputElement).value, 10);
-    let maxGuests = parseInt((document.getElementById('max_guests') as HTMLInputElement).value, 10);
-    let accommodationType = (document.getElementById('accommodation_type') as HTMLSelectElement).value;
-    let daysForCancellation = parseInt((document.getElementById('cancel-days-input') as HTMLInputElement).value, 10);
-    let pricingType = (document.getElementById('type-pricing') as HTMLSelectElement).value;
-
-    if (this.checkAllFieldsEntered()) {
-      console.log('SVA POLJA SU UNIJETA');
-      // Dodatne radnje ako su uslovi ispunjeni
-    } else {
-      console.log('NISU SVA POLJA UNIJETA');
-    }
-
-    let selectedPriceType: PricingType;
-    // Postavljanje PriceType na temelju odabira korisnika
-    if (pricingType.trim().toLowerCase() === 'guest') {
-      selectedPriceType = PricingType.GUEST;
-    } else{
-      selectedPriceType = PricingType.ACCOMMODATION;
-    }
-
-    let createAccommodationObj: CreateAccommodationDTO = {
-      name: name,
-      description: description,
-      location: location,
-      locationCoordinates: [1,1],
-      minGuests: minGuests,
-      maxGuests: maxGuests,
-      type: accommodationType as AccommodationType, // Potrebno je cast-ovanje tipa
-      prices: this.prices,
-      pricingType : selectedPriceType,
-      amenities: this.amenitiesList,
-      accommodationStatus: AccommodationStatus.CREATED,
-      images:this.photosList,
-      avaliableDates: this.dates.map(dateString => new Date(dateString)),
-      daysForCancellation: daysForCancellation
-    };
-
-    this.accommodationService.create(createAccommodationObj).subscribe(
-      (response) => {
-        console.log('Uspešno kreiran smeštaj:', response);
-      },
-      (error) => {
-        console.error('Greška prilikom kreiranja smeštaja:', error);
-        // Ovde možete dodati logiku za obradu greške ili prikazivanje odgovarajuće poruke korisniku
-      }
-    );
-  }
 }
