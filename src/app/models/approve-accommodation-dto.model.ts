@@ -18,5 +18,5 @@ export interface ApproveAccommodationDTO {
   accommodationStatus: AccommodationStatus;
   images: string[];
   type: AccommodationType;
-  avaliableDates: DateRange[];
+  availableDates: Date[][];
 }

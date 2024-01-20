@@ -19,6 +19,6 @@ export interface Accommodation {
   accommodationStatus: AccommodationStatus;
   images: string[];
   type: AccommodationStatus;
-  availableDates: DateRange[];
+  availableDates: Date[][];
   confirmationMethod: ConfirmationMethod;
 }

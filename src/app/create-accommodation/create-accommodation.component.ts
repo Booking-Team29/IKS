@@ -31,7 +31,6 @@ export class CreateAccommodationComponent {
   prices: Price[] = [];
   datesList: string[][] = [];
   photosList: string[] = [];
-  dateRangeList: DateRange[] = [];
   private accommodationList: AccommodationDTO[] = [];
 
 //  this.service.get(`${requestID}`).subscribe(response => {
@@ -95,20 +94,6 @@ export class CreateAccommodationComponent {
     let type = (document.getElementById('accommodation_type') as HTMLSelectElement).value;
     let cancel_days = (document.getElementById('cancel-days-input') as HTMLInputElement).value;
     let pricingType = (document.getElementById('type-pricing') as HTMLSelectElement).value;
-    console.log(name);
-    console.log(description);
-    console.log(this.amenitiesList);
-    console.log(this.photosList);
-    console.log(this.prices);
-    console.log(minGuests);
-    console.log(maxGuests);
-    console.log(pricingType);
-    console.log(location);
-    console.log(type);
-    console.log(this.dateRangeList);
-    console.log(cancel_days);
-
-
 
     return (
         name.trim() !== '' &&
@@ -274,7 +259,7 @@ export class CreateAccommodationComponent {
       amenities: this.amenitiesList,
       accommodationStatus: AccommodationStatus.CREATED,
       images:this.photosList,
-      avaliableDates: this.dateRangeList = this.datesList.map(dateArray => ({ startDate: new Date(dateArray[0]), endDate: new Date(dateArray[1]) })),
+      availableDates: this.datesList.map(dateArray => dateArray.map(dateString => new Date(dateString))),
       daysForCancellation: daysForCancellation,
       confirmationMethod: ConfirmationMethod.MANUAL
     };

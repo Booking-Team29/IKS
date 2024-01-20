@@ -35,7 +35,7 @@ const changeAccommodationObj: ChangeAccommodationDTO = {
   accommodationStatus: AccommodationStatus.DENIED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [],
+    availableDates: [],
   confirmationMethod: ConfirmationMethod.MANUAL
 };
 
@@ -53,7 +53,7 @@ const createAccommodationObj: CreateAccommodationDTO = {
   accommodationStatus: AccommodationStatus.DENIED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [],
+  availableDates: [],
   confirmationMethod: ConfirmationMethod.MANUAL
 };
 
@@ -72,7 +72,7 @@ const getAccommodationObj: GetAccommodationDTO = {
   accommodationStatus: AccommodationStatus.DENIED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: [],
+  availableDates: [[]],
   confirmationMethod: ConfirmationMethod.AUTOMATIC
 };
 
@@ -90,7 +90,7 @@ const approveAccommodationObj: ApproveAccommodationDTO = {
   accommodationStatus: AccommodationStatus.APPROVED,
   images: ['Test Image'],
   type: AccommodationType.APARTMENT,
-  avaliableDates: []
+  availableDates: []
 };
 
 const baseUrl: string = 'http://localhost:8080/api/v1';
