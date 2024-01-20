@@ -11,6 +11,7 @@ import {PricingType} from "../models/pricing-type.enum";
 import {Accommodation} from "../models/accommodation.model";
 import {response} from "express";
 import {AccommodationDTO} from "../models/accommodation-dto.model";
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -36,10 +37,10 @@ export class CreateAccommodationComponent implements OnInit{
 //  this.service.get(`${requestID}`).subscribe(response => {
 //let accommodation = response;
   ngOnInit(){
-    this.accommodationService.getAllAccommodation().subscribe(response => {
-      this.accommodationList = response;
-      console.log(this.accommodationList);
-    })
+    // this.accommodationService.getAllAccommodation().subscribe((response: Observable<AccommodationDTO[]>) => {
+    //   this.accommodationList = response;
+    //   console.log(this.accommodationList);
+    // })
   }
 
   addPhoto(): void {
@@ -153,10 +154,10 @@ export class CreateAccommodationComponent implements OnInit{
     }
     let selectedPriceType: PriceType;
     // Postavljanje PriceType na temelju odabira korisnika
-    if (priceType.trim().toLowerCase() === 'custom') {
-      selectedPriceType = PriceType.CUSTOM;
-    } else if (priceType.trim().toLowerCase() === 'weekend') {
-      selectedPriceType = PriceType.WEEKEND;
+    if (priceType.trim().toLowerCase() === 'Guest') {
+      selectedPriceType = PriceType.GUEST;
+    } else if (priceType.trim().toLowerCase() === 'Accommodation') {
+      selectedPriceType = PriceType.ACCOMMODATION;
     } else {
       console.log('Nepoznata vrsta cijene.');
       return;

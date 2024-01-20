@@ -7,6 +7,8 @@
   text-align: center;
   color: white;
   height: 87vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
 h2 {
@@ -59,4 +61,15 @@ h2 {
 
 #sign-in-label a:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  color: red;
+  font-weight: bold;
+}
+
+#account-type {
+  margin-left: 0.5vw;
 }
