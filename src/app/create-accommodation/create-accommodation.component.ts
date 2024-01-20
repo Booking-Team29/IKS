@@ -11,6 +11,7 @@ import {PricingType} from "../models/pricing-type.enum";
 import {AccommodationDTO} from "../models/accommodation-dto.model";
 import {DateRange} from "../models/date-range.model";
 import {ConfirmationMethod} from "../models/confirmation-method.enum";
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -197,10 +198,10 @@ export class CreateAccommodationComponent {
 
     let selectedPriceType: PriceType;
     // Postavljanje PriceType na temelju odabira korisnika
-    if (priceType.trim().toLowerCase() === 'custom') {
-      selectedPriceType = PriceType.CUSTOM;
-    } else if (priceType.trim().toLowerCase() === 'weekend') {
-      selectedPriceType = PriceType.WEEKEND;
+    if (priceType.trim().toLowerCase() === 'Guest') {
+      selectedPriceType = PriceType.GUEST;
+    } else if (priceType.trim().toLowerCase() === 'Accommodation') {
+      selectedPriceType = PriceType.ACCOMMODATION;
     } else {
       console.log('Nepoznata vrsta cijene.');
       return;

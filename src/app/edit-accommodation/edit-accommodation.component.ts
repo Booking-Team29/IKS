@@ -222,9 +222,9 @@ export class EditAccommodationComponent {
     let selectedPriceType: PriceType;
     // Postavljanje PriceType na temelju odabira korisnika
     if (priceType.trim().toLowerCase() === 'custom') {
-      selectedPriceType = PriceType.CUSTOM;
+      selectedPriceType = PriceType.ACCOMMODATION;
     } else if (priceType.trim().toLowerCase() === 'weekend') {
-      selectedPriceType = PriceType.WEEKEND;
+      selectedPriceType = PriceType.GUEST;
     } else {
       console.log('Nepoznata vrsta cijene.');
       return;

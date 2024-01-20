@@ -1,4 +1,4 @@
 export enum PriceType {
-  WEEKEND = "WEEKEND",
-  CUSTOM = "CUSTOM"
+  GUEST = "GUEST",
+  ACCOMMODATION = "ACCOMMODATION"
 }
