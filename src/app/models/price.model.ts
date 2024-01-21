@@ -2,7 +2,7 @@ import { PriceType } from "./price-type.enum";
 
 export interface Price {
   type: PriceType;
-  price: number;
+  amount: number;
   start: Date;
   end: Date;
 }
