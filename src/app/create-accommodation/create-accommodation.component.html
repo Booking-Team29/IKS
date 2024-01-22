@@ -72,7 +72,7 @@
           <tr *ngFor="let price of prices; let i = index">
             <td>{{ price.start | date }}</td>
             <td>{{ price.end| date }}</td>
-            <td>{{ price.price}}</td>
+            <td>{{ price.amount }}</td>
             <td>{{ price.type}}</td>
             <td class="promjena-boje" (click)="deletePrice(i)">X</td>
           </tr>

@@ -1,6 +1,6 @@
 <div class="search-result-card">
 
-    <div class="accommodation-image">
+    <div class="accommodation-image {{result.id}}">
         <!-- <img src="https://www.savills.co.uk/_images/adobestock-539646437.jpg"/> -->
         <img src="{{ result.images[0] }}"/>
     </div>
@@ -22,6 +22,16 @@
 
     <div class="show">
         <button (click)="navigate()">Show</button>
+    </div>
+
+    <div class="prices">
+        <div *ngFor="let price of result.prices" class="price">
+            <p>{{price.type}}</p>
+            <p>${{price.amount}}</p>
+            <p>{{price.start}}</p>
+            <p>{{price.end}}</p>
+        </div>
+
     </div>
 
 </div>

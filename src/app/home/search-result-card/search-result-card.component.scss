@@ -4,11 +4,12 @@
     @include flex();
     flex-wrap: wrap;
     width: 27vw;
-    max-height: 50vh;
+    min-height: 50vh;
 
     padding-left: 1vw;
     padding-right: 1vw;
     padding-top: 2vh;
+    padding-bottom: 2vh;
     border-radius: 20px;
     color: $main_blue;
     background-color: white;
@@ -75,4 +76,21 @@
     }
     margin-top: 1vh;
     margin-bottom: 1vh;
+}
+
+.prices {
+    @include flex();
+    width: 100%;
+    div {
+        width: 25%;
+    }
+
+    .price {
+        @include flex();
+        width: 100%;
+        p {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    }
 }

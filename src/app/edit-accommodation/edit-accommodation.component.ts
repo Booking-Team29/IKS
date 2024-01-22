@@ -47,8 +47,8 @@ export class EditAccommodationComponent {
     this.description = 'Opis smeštaja';
     this.amenitiesList = ["wifi", "conditioner"];
     const newPrice: Price = {
-      type: PriceType.CUSTOM,
-      price: 10, // Pretvaranje cijene iz stringa u broj
+      type: PriceType.GUEST,
+      amount: 10, // Pretvaranje cijene iz stringa u broj
       start: new Date('01-26-2024'),
       end: new Date('01-29-2024')
     };
@@ -231,7 +231,7 @@ export class EditAccommodationComponent {
     }
     const newPrice: Price = {
       type: selectedPriceType,
-      price: parseFloat(price), // Pretvaranje cijene iz stringa u broj
+      amount: parseFloat(price), // Pretvaranje cijene iz stringa u broj
       start: startDateObj,
       end: endDateObj
     };
@@ -244,4 +244,5 @@ export class EditAccommodationComponent {
     this.prices.splice(index, 1);
   }
 
+  onCreateClick() {}
 }

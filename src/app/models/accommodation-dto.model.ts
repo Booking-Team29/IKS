@@ -19,4 +19,5 @@ export interface AccommodationDTO {
   images: string[];
   type: AccommodationType;
   availableDates: Date[][];
+  rating: Number
 }

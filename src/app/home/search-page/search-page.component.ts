@@ -14,8 +14,8 @@ import { AccommodationDTO } from '../../models/accommodation-dto.model';
   styleUrl: './search-page.component.scss'
 })
 export class SearchPageComponent {
-  lowestRating: number = 5;
-  highestRating: number = 10;
+  lowestRating: Number = 5;
+  highestRating: Number = 10;
   hotelChecked: Boolean = false;
   apartmentChecked: Boolean = false;
   studioChecked: Boolean = false;
@@ -31,15 +31,16 @@ export class SearchPageComponent {
   receiveSearchResults(data: AccommodationDTO[]) {
     let new_results = []
     for (const acc of data) {
-      // TODO: rating
-      if (this.hotelChecked && acc.type != "HOTEL") continue;
-      if (this.apartmentChecked && acc.type != "APARTMENT") continue;
-      if (this.studioChecked && acc.type != "STUDIO") continue;
+      if (acc.rating != null && (acc.rating < this.lowestRating || acc.rating > this.highestRating)) continue;
+      
+      let valid = (this.hotelChecked && acc.type == "HOTEL") || (this.apartmentChecked && acc.type == "APARTMENT") || (this.studioChecked && acc.type == "STUDIO") ;
+      if (!valid) continue;
 
       if (this.WiFiChecked && !acc.amenities.includes("Wi-Fi")) continue;
       if (this.petChecked && !acc.amenities.includes("Pet")) continue;
       if (this.balconyChecked && !acc.amenities.includes("Balcony")) continue;
       if (this.airConditioningChecked && !acc.amenities.includes("AirConditioning")) continue;
+      if (this.parkingChecked && !acc.amenities.includes("Parking")) continue;
       new_results.push(acc);
     }
     this.results = new_results;

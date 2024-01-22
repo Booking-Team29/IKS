@@ -208,7 +208,7 @@ export class CreateAccommodationComponent {
     }
     const newPrice: Price = {
       type: selectedPriceType,
-      price: parseFloat(price), // Pretvaranje cijene iz stringa u broj
+      amount: parseFloat(price), // Pretvaranje cijene iz stringa u broj
       start: startDateObj,
       end: endDateObj
     };
