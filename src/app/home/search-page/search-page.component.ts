@@ -31,7 +31,7 @@ export class SearchPageComponent {
   receiveSearchResults(data: AccommodationDTO[]) {
     let new_results = []
     for (const acc of data) {
-      if (Number.isNaN(acc.rating) && (acc.rating < this.lowestRating || acc.rating > this.highestRating)) continue;
+      if (acc.rating != null && (acc.rating < this.lowestRating || acc.rating > this.highestRating)) continue;
       
       let valid = (this.hotelChecked && acc.type == "HOTEL") || (this.apartmentChecked && acc.type == "APARTMENT") || (this.studioChecked && acc.type == "STUDIO") ;
       if (!valid) continue;
