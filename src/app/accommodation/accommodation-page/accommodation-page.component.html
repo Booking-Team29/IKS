@@ -4,6 +4,16 @@
           <app-gallery-carousel [data]="accommodationData?.images"></app-gallery-carousel>
         </div>
 
+        <div class="description-div">
+            <p> {{ accommodationData.description }} </p>
+        </div>
+
+        <div class="amenities-div">
+            <div *ngFor="let amenity of accommodationData.amenities">
+                <app-amenity-card [amenityName]="amenity"></app-amenity-card>
+            </div>
+        </div>
+
         <div class="accommodation-header">
             <div class="name-div">
               <h1>{{ accommodationData.name }}</h1>
@@ -14,39 +24,30 @@
                 <p>{{ accommodationData.location }}</p>
             </div>
 
-            <form class="reservation-form">
+            <div class="error-div">
+              <p class="error-message" *ngIf="error">{{errorMessage}}</p>
+            </div>
+            <div class="reservation-form">
               <div class="form-group">
-                <label for="">Check In:</label>
-                <input type="date" id="check-in"> <!--[(ngModel)]="checkInDate"-->
+                <label for="check-in">Check In:</label>
+                <input type="date" id="check-in" [(ngModel)]="startDate"> 
               </div>
 
               <div class="form-group">
                 <label for="check-out">Check Out:</label>
-                <input required type="date" id="check-out"> <!-- [(ngModel)]="checkOutDate" -->
+                <input required type="date" id="check-out" [(ngModel)]="endDate"> 
               </div>
 
               <div class="form-group">
-                <label for="number-of-guests">Number of guests</label>
-                <input required type="text" id="number-of-guests" name="number-of-guests"
-                  placeholder="Enter number of guests">
+                <label for="number-of-guests">Number of guests:</label>
+                <input required type="number" id="number-of-guests" name="number-of-guests"
+                  placeholder="Enter number of guests" [(ngModel)]="numberOfGuests">
               </div>
 
               <div class="form-group">
-                <label>&nbsp;</label>
-                <input type="button" value="Make a reservation">
+                <button (click)="onSubmit()">Submit</button>
               </div>
 
-            </form>
-        </div>
-
-
-        <div class="description-div">
-            <p> {{ accommodationData.description }} </p>
-        </div>
-
-        <div class="amenities-div">
-            <div *ngFor="let amenity of accommodationData.amenities">
-                <app-amenity-card [amenityName]="amenity"></app-amenity-card>
             </div>
         </div>
 

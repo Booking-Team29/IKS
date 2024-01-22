@@ -6,4 +6,5 @@ export interface ReservationDTO {
   guestCount: number;
   status: ReservationStatus;
   totalPrice: number;
+  accommodationId: number;
 }
